@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "465455508425",
+    "project_id": "samaj-parivaar",
+    "storage_bucket": "samaj-parivaar.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465455508425:android:18344643bdd9535a8fd618",
+        "android_client_info": {
+          "package_name": "com.example.samaj_parivaar_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuLq9YBUjPYAX3IFkx59tS3GhmrK3G6cM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
