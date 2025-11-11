@@ -4,18 +4,19 @@ import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:samaj_parivaar_app/model/user.dart';
+import 'package:samaj_parivaar_app/utils/api_client.dart';
 import 'package:samaj_parivaar_app/utils/api_endpoints.dart';
 import 'package:samaj_parivaar_app/utils/local_storage.dart';
 
 class AuthService extends GetxService {
+  final _apiClient = ApiClient();
   static Map<String, String> headers = {"Content-Type": "application/json"};
 
   Future<User> login(String email, password) async {
     try {
-      final url = Uri.parse(ApiEndpoints.loginUrl);
       final payload = {"email": email, "password": password};
-      final response = await http.post(
-        url,
+      final response = await _apiClient.post(
+        ApiEndpoints.loginUrl,
         headers: headers,
         body: jsonEncode(payload),
       );
@@ -40,13 +41,12 @@ class AuthService extends GetxService {
 
   Future<void> register(String fullName, String email, String password) async {
     try {
-      final url = Uri.parse(ApiEndpoints.registerUrl);
       final payload = {
         "fullName": fullName,
         "email": email,
         "password": password,
       };
-      final response = await http.post(url, headers: headers, body: payload);
+      final response = await _apiClient.post(ApiEndpoints.registerUrl, headers: headers, body: jsonEncode(payload));
       final apiRes = jsonDecode(response.body);
       if (apiRes["success"] ?? false) {
         return;
