@@ -6,6 +6,7 @@ import 'package:samaj_parivaar_app/controller/auth_controller.dart';
 import 'package:samaj_parivaar_app/res/assets_res.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
 import 'package:samaj_parivaar_app/view/auth/account_verification_screen.dart';
+import 'package:samaj_parivaar_app/view/auth/login_page.dart';
 import 'package:samaj_parivaar_app/widgets/app_text_form_field.dart';
 import 'package:samaj_parivaar_app/widgets/primary_button.dart';
 
@@ -36,6 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.w, 85.h, 30.w, 0),
@@ -53,23 +55,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
             AppTextFormField(
               hintText: "Full Name",
               controller: emailController,
-              prefixIcon: CupertinoIcons.person,
+              prefixIcon: Image.asset(AssetsRes.NAME, scale: 3.0,),
             ),
             AppTextFormField(
               hintText: "Email id",
               controller: emailController,
-              prefixIcon: CupertinoIcons.mail,
+              prefixIcon: Image.asset(AssetsRes.EMAIL, scale: 3.0,),
             ),
             AppTextFormField(
               hintText: "Password",
               controller: passwordController,
-              prefixIcon: CupertinoIcons.lock,
+              prefixIcon: Image.asset(AssetsRes.PASSWORD_LOCK, scale: 3.0,),
               obscureNotifier: obscure,
             ),
             AppTextFormField(
               hintText: "Confirm Password",
               controller: confirmPasswordController,
-              prefixIcon: CupertinoIcons.lock,
+              prefixIcon: Image.asset(AssetsRes.PASSWORD_LOCK, scale: 3.0,),
               obscureNotifier: obscure,
             ),
             Row(
@@ -78,7 +80,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Text(
                   "Forgot password?",
                   textAlign: TextAlign.right,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 12.sp, fontWeight: FontWeight.w400),
                 ),
               ],
             ),
@@ -109,10 +111,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: (authController.isLoading.value)
                 ? const Center(child: CircularProgressIndicator())
                 : PrimaryButton(
-                    newHeight: 70.h,
-                    newWidth: 360.w,
-                    text: "SignUp",
+                    newHeight: 50.h,
+                    newWidth: 350.w,
+                    text: "Sign Up",
                     borderRadius: BorderRadius.circular(35),
+              style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500, color:Colors.white),
                   ),
           );
         }),
@@ -120,12 +123,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
           "or continue with",
           style: Theme.of(
             context,
-          ).textTheme.titleMedium?.copyWith(fontSize: 20.sp),
+          ).textTheme.titleMedium?.copyWith(fontSize: 15.sp, fontWeight: FontWeight.w500),
         ),
         GestureDetector(
           child: Container(
-            height: 70.h,
-            width: 360.w,
+            height: 50.h,
+            width: 350.w,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(35.r),
@@ -142,6 +145,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   style: appTheme().textTheme.bodyLarge?.copyWith(
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
+                    fontSize: 20.sp
                   ),
                 ),
               ],
@@ -156,8 +160,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               style: Theme.of(context).textTheme.titleSmall,
             ),
             GestureDetector(
+              onTap: (){Get.offAll(()=> LoginPage());},
               child: Text(
-                "Sign up",
+                "Login",
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),

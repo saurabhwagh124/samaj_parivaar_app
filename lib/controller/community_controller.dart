@@ -10,10 +10,17 @@ class CommunityController extends GetxController {
   RxBool isLoading = false.obs;
   RxList<CommunityModel> communities = <CommunityModel>[].obs;
 
+  @override
+  void onInit() {
+    // getCommunities();
+    super.onInit();
+  }
+
   void getCommunities() async {
     isLoading.value = true;
     try {
-      communities.value = await service.getCommunities();
+      communities.addAll(await service.getCommunities());
+      log(communities.toString());
     } catch (e) {
       MyErrorSnackBar.showErrorSnackBar("Something went wrong", e.toString());
       log(e.toString());

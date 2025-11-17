@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:samaj_parivaar_app/controller/community_controller.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
-import 'package:samaj_parivaar_app/view/landing_page.dart';
+import 'package:samaj_parivaar_app/view/landing/landing_page.dart';
 import 'package:samaj_parivaar_app/widgets/community/community_grid_box.dart';
 
 class SelectCommunityScreen extends StatefulWidget {

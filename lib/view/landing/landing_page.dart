@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:samaj_parivaar_app/res/assets_res.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
 import 'package:samaj_parivaar_app/view/create_post_page.dart';
-import 'package:samaj_parivaar_app/view/events_page.dart';
-import 'package:samaj_parivaar_app/view/group_page.dart';
-import 'package:samaj_parivaar_app/view/home_page.dart';
-import 'package:samaj_parivaar_app/view/profile_page.dart';
+import 'package:samaj_parivaar_app/view/landing/events_page.dart';
+import 'package:samaj_parivaar_app/view/landing/group_page.dart';
+import 'package:samaj_parivaar_app/view/landing/home_page.dart';
+import 'package:samaj_parivaar_app/view/landing/profile_page.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -23,29 +22,8 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(
-          Icons.menu,
-          size: 32.r,
-          color: appTheme().colorScheme.lavender,
-        ),
-        actions: [
-          Badge(
-            alignment: Alignment.topRight,
-            label: Text(""),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                CupertinoIcons.bell,
-                size: 32.sp,
-                color: appTheme().colorScheme.lavender,
-              ),
-            ),
-          ),
-          SizedBox(width: 20.w),
-        ],
-      ),
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         controller: pageController,
         children: [
           HomePage(),
@@ -62,70 +40,70 @@ class _LandingPageState extends State<LandingPage> {
         showUnselectedLabels: true,
         showSelectedLabels: true,
         selectedLabelStyle: TextStyle(
-          fontSize: 16.sp,
+          fontSize: 13.sp,
           fontWeight: FontWeight.w600,
           color: appTheme().colorScheme.lavender,
         ),
         unselectedLabelStyle: TextStyle(
-          fontSize: 16.sp,
+          fontSize: 12.sp,
           fontWeight: FontWeight.w600,
           color: appTheme().colorScheme.lavender,
         ),
         items: [
           BottomNavigationBarItem(
             activeIcon: CircleAvatar(
-              radius: 27.5.r,
+              radius: 20.r,
               backgroundColor: appTheme().colorScheme.iceBlue,
-              child: Image.asset(AssetsRes.HOME, height: 30.r, width: 30.r),
+              child: Image.asset(AssetsRes.HOME, height: 20.r, width: 20.r),
             ),
-            icon: Image.asset(AssetsRes.HOME, height: 30.r, width: 30.r),
+            icon: Image.asset(AssetsRes.HOME, height: 20.r, width: 20.r),
             label: "Home",
           ),
           BottomNavigationBarItem(
             activeIcon: CircleAvatar(
-              radius: 27.5.r,
+              radius: 20.r,
               backgroundColor: appTheme().colorScheme.iceBlue,
               child: Image.asset(
                 AssetsRes.COMMUNITY,
-                height: 30.r,
-                width: 30.r,
+                height: 20.r,
+                width: 20.r,
               ),
             ),
-            icon: Image.asset(AssetsRes.COMMUNITY, height: 30.r, width: 30.r),
+            icon: Image.asset(AssetsRes.COMMUNITY, height: 20.r, width: 20.r),
             label: "Groups",
           ),
           BottomNavigationBarItem(
             activeIcon: CircleAvatar(
-              radius: 27.5.r,
+              radius: 20.r,
               backgroundColor: appTheme().colorScheme.iceBlue,
-              child: Image.asset(AssetsRes.ADD_POST, height: 30.r, width: 30.r),
+              child: Image.asset(AssetsRes.ADD_POST, height: 20.r, width: 20.r),
             ),
-            icon: Image.asset(AssetsRes.ADD_POST, height: 30.r, width: 30.r),
+            icon: Image.asset(AssetsRes.ADD_POST, height: 20.r, width: 20.r),
             label: "Post",
           ),
           BottomNavigationBarItem(
             activeIcon: CircleAvatar(
-              radius: 27.5.r,
+              radius: 20.r,
               backgroundColor: appTheme().colorScheme.iceBlue,
-              child: Image.asset(AssetsRes.EVENTS, height: 30.r, width: 30.r),
+              child: Image.asset(AssetsRes.EVENTS, height: 20.r, width: 20.r),
             ),
-            icon: Image.asset(AssetsRes.EVENTS, height: 30.r, width: 30.r),
+            icon: Image.asset(AssetsRes.EVENTS, height: 20.r, width: 20.r),
             label: "Event",
           ),
           BottomNavigationBarItem(
             activeIcon: CircleAvatar(
-              radius: 27.5.r,
+              radius: 20.r,
               backgroundColor: appTheme().colorScheme.iceBlue,
               child: Image.asset(
                 AssetsRes.PERSON_PROFILE,
-                height: 30.r,
-                width: 30.r,
+                height: 20.r,
+                width: 20.r,
               ),
             ),
             icon: Image.asset(
               AssetsRes.PERSON_PROFILE,
-              height: 30.r,
-              width: 30.r,
+              height: 20.r,
+              width: 20.r,
             ),
             label: "Profile",
           ),

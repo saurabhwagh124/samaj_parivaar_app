@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:samaj_parivaar_app/controller/auth_controller.dart';
 import 'package:samaj_parivaar_app/res/assets_res.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
-import 'package:samaj_parivaar_app/view/pay_2_screen.dart';
+import 'package:samaj_parivaar_app/view/auth/register_screen.dart';
+import 'package:samaj_parivaar_app/view/landing/landing_page.dart';
 import 'package:samaj_parivaar_app/widgets/app_text_form_field.dart';
 import 'package:samaj_parivaar_app/widgets/primary_button.dart';
 
@@ -32,6 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.w, 85.h, 30.w, 25.h),
@@ -40,22 +41,24 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Hey,\nWelcome\nBack",
+              "Hey\nWelcome Back",
               style: appTheme().textTheme.headlineLarge?.copyWith(
                 color: appTheme().colorScheme.lavender,
+                fontSize: 36.sp,
+                fontWeight: FontWeight.w700,
               ),
             ),
             SizedBox(height: 20.h),
             AppTextFormField(
               hintText: "Email id",
               controller: emailController,
-              prefixIcon: CupertinoIcons.mail,
+              prefixIcon: Image.asset(AssetsRes.EMAIL, scale: 3.0),
             ),
             SizedBox(height: 10.h),
             AppTextFormField(
               hintText: "Password",
               controller: passwordController,
-              prefixIcon: CupertinoIcons.lock,
+              prefixIcon: Image.asset(AssetsRes.PASSWORD_LOCK, scale: 3.0),
               obscureNotifier: obscure,
             ),
             Row(
@@ -64,7 +67,10 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   "Forgot password?",
                   textAlign: TextAlign.right,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ],
             ),
@@ -88,16 +94,21 @@ class _LoginPageState extends State<LoginPage> {
                 emailController.text,
                 passwordController.text,
               )) {
-                Get.offAll(() => Pay2Screen());
+                Get.offAll(() => LandingPage());
               }
             },
             child: (authController.isLoading.value)
                 ? const Center(child: CircularProgressIndicator())
                 : PrimaryButton(
-                    newHeight: 70.h,
-                    newWidth: 360.w,
+                    newHeight: 50.h,
+                    newWidth: 350.w,
                     text: "Login",
                     borderRadius: BorderRadius.circular(35.r),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15.sp,
+                      color: Colors.white,
+                    ),
                   ),
           );
         }),
@@ -105,12 +116,12 @@ class _LoginPageState extends State<LoginPage> {
           "or continue with",
           style: Theme.of(
             context,
-          ).textTheme.titleMedium?.copyWith(fontSize: 20.sp),
+          ).textTheme.titleMedium?.copyWith(fontSize: 15.sp),
         ),
         GestureDetector(
           child: Container(
-            height: 70.h,
-            width: 360.w,
+            height: 50.h,
+            width: 350.w,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(35.r),
@@ -141,6 +152,9 @@ class _LoginPageState extends State<LoginPage> {
               style: Theme.of(context).textTheme.titleSmall,
             ),
             GestureDetector(
+              onTap: () {
+                Get.to(() => RegisterScreen());
+              },
               child: Text(
                 "Sign up",
                 style: Theme.of(context).textTheme.titleMedium,

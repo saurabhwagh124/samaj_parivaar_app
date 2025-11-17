@@ -7,10 +7,13 @@ import 'package:samaj_parivaar_app/utils/app_colors.dart';
 /// - optional prefix / suffix icons
 /// - optional validator, keyboardType, textInputAction, onFieldSubmitted
 class AppTextFormField extends StatelessWidget {
+  final Function(String)? onChangeFunction;
   final String hintText;
+  final TextStyle? hintTextStyle;
+  final BorderRadius? radius;
   final TextEditingController controller;
   final ValueNotifier<bool>? obscureNotifier; // true → obscure
-  final IconData? prefixIcon;
+  final Widget? prefixIcon;
   final IconData? suffixIcon;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
@@ -20,8 +23,11 @@ class AppTextFormField extends StatelessWidget {
 
   const AppTextFormField({
     super.key,
+    this.onChangeFunction,
     required this.hintText,
+    this.hintTextStyle,
     required this.controller,
+    this.radius,
     this.obscureNotifier,
     this.prefixIcon,
     this.suffixIcon,
@@ -43,6 +49,7 @@ class AppTextFormField extends StatelessWidget {
         final isObscure = obscureValue ?? false;
 
         return TextFormField(
+          onChanged: onChangeFunction,
           controller: controller,
           obscureText: isObscure,
           keyboardType: keyboardType,
@@ -54,28 +61,36 @@ class AppTextFormField extends StatelessWidget {
             filled: true,
             fillColor: appTheme().colorScheme.iceBlue,
             hintText: hintText,
-            hintStyle: theme.textTheme.bodyLarge?.copyWith(
-              color: Colors.black,
-              fontSize: 18.sp,
-            ),
-            prefixIcon: prefixIcon == null
-                ? null
-                : Icon(prefixIcon, color: theme.colorScheme.primary),
+            hintStyle: (hintTextStyle != null)
+                ? hintTextStyle
+                : theme.textTheme.bodyLarge?.copyWith(
+                    color: Colors.black,
+                    fontSize: 12.sp,
+                  ),
+            prefixIcon: prefixIcon,
             suffixIcon: _buildSuffixIcon(isObscure),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: (radius != null)
+                  ? radius!
+                  : BorderRadius.circular(30),
               borderSide: BorderSide(color: Colors.transparent),
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: (radius != null)
+                  ? radius!
+                  : BorderRadius.circular(30),
               borderSide: BorderSide(color: Colors.transparent),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: (radius != null)
+                  ? radius!
+                  : BorderRadius.circular(30),
               borderSide: BorderSide(color: Colors.transparent),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: (radius != null)
+                  ? radius!
+                  : BorderRadius.circular(30),
               borderSide: BorderSide(color: Colors.transparent),
             ),
             contentPadding: const EdgeInsets.symmetric(
@@ -102,7 +117,7 @@ class AppTextFormField extends StatelessWidget {
         icon: Icon(
           isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
         ),
-        color: appTheme().colorScheme.lavender,
+        // color: appTheme().colorScheme.lavender,
         onPressed: () => obscureNotifier!.value = !isObscure,
       );
     }

@@ -5,12 +5,14 @@ class SecondaryButton extends StatelessWidget {
   final double newHeight;
   final double newWidth;
   final String text;
+  final TextStyle? style;
   final BorderRadius borderRadius;
 
   const SecondaryButton({
     super.key,
     required this.newHeight,
     required this.newWidth,
+    this.style,
     required this.text,
     required this.borderRadius,
   });
@@ -27,7 +29,7 @@ class SecondaryButton extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         text,
-        style: appTheme().textTheme.headlineSmall?.copyWith(
+        style: (style!=null)?style:appTheme().textTheme.headlineSmall?.copyWith(
           color: Colors.black,
         ),
       ),

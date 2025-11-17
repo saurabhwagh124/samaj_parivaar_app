@@ -6,7 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:samaj_parivaar_app/controller/auth_controller.dart';
 import 'package:samaj_parivaar_app/controller/community_controller.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
-import 'package:samaj_parivaar_app/view/auth/select_community_screen.dart';
+import 'package:samaj_parivaar_app/view/splash_screen.dart';
 
 import 'firebase_options.dart';
 
@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
           Get.put(AuthController());
           Get.put(CommunityController());
         }),
-        home: const SelectCommunityScreen(),
-        // home: const SplashScreen(),
+        // home: const LoginPage(),
+        home: const SplashScreen(),
       ),
     );
   }

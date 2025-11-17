@@ -4,6 +4,8 @@ extension AppColors on ColorScheme {
   Color get iceBlue => const Color(0xFFCDE8FD); // ← #CDE8FD
   Color get lavender => const Color(0xFF4F51C0); // ← #4F51C0
   Color get grey1 => const Color(0xFFD9D9D9);
+
+  Color get textGrey => const Color(0xFFAFAAAA);
 }
 
 ThemeData appTheme() {

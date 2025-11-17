@@ -10,10 +10,14 @@ class AssetsRes {
   static const String PROJECT_VERSION = '1.0.0+1';
   static const String ADD_POST = 'assets/images/add_post.png';
   static const String COMMUNITY = 'assets/images/community.png';
+  static const String COMMUNITY_ICON = 'assets/images/community_icon.png';
   static const String COMMUNITY_PEOPLE = 'assets/images/community_people.png';
+  static const String EMAIL = 'assets/images/email.png';
   static const String EVENTS = 'assets/images/events.png';
   static const String GOOGLE = 'assets/images/google.png';
   static const String HOME = 'assets/images/home.png';
   static const String LOGO = 'assets/images/logo.png';
+  static const String NAME = 'assets/images/name.png';
+  static const String PASSWORD_LOCK = 'assets/images/password_lock.png';
   static const String PERSON_PROFILE = 'assets/images/person_profile.png';
 }

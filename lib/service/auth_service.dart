@@ -28,7 +28,7 @@ class AuthService extends GetxService {
         await LocalStorage.i.saveToken(apiRes["data"]["token"]);
         return user;
       } else {
-        throw Exception(apiRes.message);
+        throw Exception(apiRes["message"]);
       }
     } catch (e) {
       throw Exception(e);
