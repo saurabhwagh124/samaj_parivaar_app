@@ -51,4 +51,46 @@ class CommunityService extends GetxService {
     }
     return null;
   }
+
+  Future<List<CommunityModel>> getUserCommunities(num id) async {
+    final url = ApiEndpoints.groupsOfMembersUrl.replaceAll(
+      ":userId",
+      id.toString(),
+    );
+    try {
+      final response = await _apiClient.get(url, headers: headers);
+      final apiRes = jsonDecode(response.body);
+      if (apiRes["success"] ?? false) {
+        final data = apiRes["data"];
+        return data
+            .map<CommunityModel>((item) => CommunityModel.fromJson(item))
+            .toList();
+      } else {
+        throw Exception(apiRes["message"]);
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<List<CommunityModel>> getAntiUserCommunities(num id) async {
+    final url = ApiEndpoints.noGroupsOfMembersUrl.replaceAll(
+      ":userId",
+      id.toString(),
+    );
+    try {
+      final response = await _apiClient.get(url, headers: headers);
+      final apiRes = jsonDecode(response.body);
+      if (apiRes["success"] ?? false) {
+        final data = apiRes["data"];
+        return data
+            .map<CommunityModel>((item) => CommunityModel.fromJson(item))
+            .toList();
+      } else {
+        throw Exception(apiRes["message"]);
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 }

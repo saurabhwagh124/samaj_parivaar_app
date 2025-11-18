@@ -5,19 +5,18 @@ import 'package:get/get.dart';
 import 'package:samaj_parivaar_app/controller/community_controller.dart';
 import 'package:samaj_parivaar_app/res/assets_res.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
-import 'package:samaj_parivaar_app/view/community/discover_community_screen.dart';
 import 'package:samaj_parivaar_app/widgets/app_text_form_field.dart';
 import 'package:samaj_parivaar_app/widgets/community/community_card.dart';
-import 'package:samaj_parivaar_app/widgets/primary_button.dart';
 
-class GroupPage extends StatefulWidget {
-  const GroupPage({super.key});
+class DiscoverCommunityScreen extends StatefulWidget {
+  const DiscoverCommunityScreen({super.key});
 
   @override
-  State<GroupPage> createState() => _GroupPageState();
+  State<DiscoverCommunityScreen> createState() =>
+      _DiscoverCommunityScreenState();
 }
 
-class _GroupPageState extends State<GroupPage> {
+class _DiscoverCommunityScreenState extends State<DiscoverCommunityScreen> {
   final searchController = TextEditingController();
   RxString search = ''.obs;
   final communityController = Get.find<CommunityController>();
@@ -26,15 +25,23 @@ class _GroupPageState extends State<GroupPage> {
   void initState() {
     super.initState();
     if (communityController.communities.isEmpty) {
-      communityController.getCommunities();
+      communityController.getAntiUserCommunities();
     }
-    communityController.getUserCommunities();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          iconSize: 20.sp,
+          color: appTheme().colorScheme.lavender,
+          onPressed: () {
+            Get.back();
+          },
+        ),
         backgroundColor: appTheme().colorScheme.iceBlue,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -47,7 +54,7 @@ class _GroupPageState extends State<GroupPage> {
             ),
             SizedBox(width: 15.w),
             Text(
-              "Community",
+              "Find Your Community",
               style: TextStyle(
                 fontSize: 24.sp,
                 fontWeight: FontWeight.w600,
@@ -81,7 +88,7 @@ class _GroupPageState extends State<GroupPage> {
             SizedBox(height: 20.h),
             Expanded(
               child: Obx(() {
-                final communityList = communityController.myCommunities
+                final communityList = communityController.communities
                     .where(
                       (e) =>
                           e.locationArea!.toLowerCase().contains(
@@ -95,26 +102,13 @@ class _GroupPageState extends State<GroupPage> {
                 return (communityController.isLoading.value)
                     ? Center(child: CircularProgressIndicator())
                     : ListView.separated(
-                        itemBuilder: (context, index) => CommunityCard(
-                          data: communityList[index],
-                          isJoined: true,
-                        ),
+                        itemBuilder: (context, index) =>
+                            CommunityCard(data: communityList[index]),
                         separatorBuilder: (context, index) =>
                             SizedBox(height: 20.h),
                         itemCount: communityList.length,
                       );
               }),
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(() => DiscoverCommunityScreen());
-              },
-              child: PrimaryButton(
-                newHeight: 70.h,
-                newWidth: 390.w,
-                text: "Discover & Join Groups",
-                borderRadius: BorderRadius.circular(40.r),
-              ),
             ),
           ],
         ),

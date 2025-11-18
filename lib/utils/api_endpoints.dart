@@ -22,6 +22,8 @@ class ApiEndpoints {
   // group members
   static String groupMembersUrl = "$areaGroupsUrl/member/:areaGroupId";
   static String groupsOfMembersUrl = "$areaGroupsUrl/member/group/:userId";
+  static String noGroupsOfMembersUrl =
+      "$areaGroupsUrl/member/group/not/:userId";
   static String promoteMemberToAdminUrl =
       "$areaGroupsUrl/member/:userId/promote-to-admin";
   static String demoteMemberToAdminUrl = "$areaGroupsUrl/member/:userId/demote";

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:samaj_parivaar_app/model/community_model.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
+import 'package:samaj_parivaar_app/view/community/community_join_request_screen.dart';
 import 'package:samaj_parivaar_app/widgets/primary_button.dart';
 
 class CommunityCard extends StatefulWidget {
   final CommunityModel data;
+  final bool isJoined;
 
-  const CommunityCard({super.key, required this.data});
+  const CommunityCard({super.key, required this.data, this.isJoined = false});
 
   @override
   State<CommunityCard> createState() => _CommunityCardState();
@@ -68,17 +71,26 @@ class _CommunityCardState extends State<CommunityCard> {
                 ),
               ),
               Spacer(),
-              PrimaryButton(
-                newHeight: 30.h,
-                newWidth: 99.w,
-                text: "Join Request",
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-                borderRadius: BorderRadius.circular(30.r),
-              ),
+              (widget.isJoined)
+                  ? SizedBox.shrink()
+                  : GestureDetector(
+                      onTap: () {
+                        Get.to(
+                          () => CommunityJoinRequestScreen(data: widget.data),
+                        );
+                      },
+                      child: PrimaryButton(
+                        newHeight: 30.h,
+                        newWidth: 99.w,
+                        text: "Join Request",
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                        borderRadius: BorderRadius.circular(30.r),
+                      ),
+                    ),
             ],
           ),
         ],
