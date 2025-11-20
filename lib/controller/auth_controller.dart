@@ -49,4 +49,23 @@ class AuthController extends GetxController {
       isLoading.value = false;
     }
   }
+
+  Future<bool> updateProfile(User user) async {
+    isLoading.value = true;
+    try {
+      currentUser.value = await service.updateUser(user);
+      return true;
+    } catch (e) {
+      log(e.toString());
+      Get.snackbar(
+        "Error",
+        e.toString(),
+        colorText: Colors.white,
+        backgroundColor: Colors.red,
+      );
+      return false;
+    } finally {
+      isLoading.value = false;
+    }
+  }
 }

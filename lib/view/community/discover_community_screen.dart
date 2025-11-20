@@ -88,6 +88,8 @@ class _DiscoverCommunityScreenState extends State<DiscoverCommunityScreen> {
             SizedBox(height: 20.h),
             Expanded(
               child: Obx(() {
+                final isLoading =
+                    communityController.isCommunitiesLoading.value;
                 final communityList = communityController.communities
                     .where(
                       (e) =>
@@ -99,7 +101,7 @@ class _DiscoverCommunityScreenState extends State<DiscoverCommunityScreen> {
                           ),
                     )
                     .toList();
-                return (communityController.isLoading.value)
+                return (isLoading)
                     ? Center(child: CircularProgressIndicator())
                     : ListView.separated(
                         itemBuilder: (context, index) =>

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -54,24 +53,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
             SizedBox(height: 20.h),
             AppTextFormField(
               hintText: "Full Name",
-              controller: emailController,
-              prefixIcon: Image.asset(AssetsRes.NAME, scale: 3.0,),
+              controller: fullNameController,
+              prefixIcon: Image.asset(AssetsRes.NAME, scale: 3.0),
             ),
             AppTextFormField(
               hintText: "Email id",
               controller: emailController,
-              prefixIcon: Image.asset(AssetsRes.EMAIL, scale: 3.0,),
+              prefixIcon: Image.asset(AssetsRes.EMAIL, scale: 3.0),
             ),
             AppTextFormField(
               hintText: "Password",
               controller: passwordController,
-              prefixIcon: Image.asset(AssetsRes.PASSWORD_LOCK, scale: 3.0,),
+              prefixIcon: Image.asset(AssetsRes.PASSWORD_LOCK, scale: 3.0),
               obscureNotifier: obscure,
             ),
             AppTextFormField(
               hintText: "Confirm Password",
               controller: confirmPasswordController,
-              prefixIcon: Image.asset(AssetsRes.PASSWORD_LOCK, scale: 3.0,),
+              prefixIcon: Image.asset(AssetsRes.PASSWORD_LOCK, scale: 3.0),
               obscureNotifier: obscure,
             ),
             Row(
@@ -80,7 +79,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Text(
                   "Forgot password?",
                   textAlign: TextAlign.right,
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 12.sp, fontWeight: FontWeight.w400),
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ],
             ),
@@ -115,15 +117,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     newWidth: 350.w,
                     text: "Sign Up",
                     borderRadius: BorderRadius.circular(35),
-              style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500, color:Colors.white),
+                    style: TextStyle(
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
                   ),
           );
         }),
         Text(
           "or continue with",
-          style: Theme.of(
-            context,
-          ).textTheme.titleMedium?.copyWith(fontSize: 15.sp, fontWeight: FontWeight.w500),
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            fontSize: 15.sp,
+            fontWeight: FontWeight.w500,
+          ),
         ),
         GestureDetector(
           child: Container(
@@ -145,7 +152,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   style: appTheme().textTheme.bodyLarge?.copyWith(
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
-                    fontSize: 20.sp
+                    fontSize: 20.sp,
                   ),
                 ),
               ],
@@ -160,7 +167,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               style: Theme.of(context).textTheme.titleSmall,
             ),
             GestureDetector(
-              onTap: (){Get.offAll(()=> LoginPage());},
+              onTap: () {
+                Get.offAll(() => LoginPage());
+              },
               child: Text(
                 "Login",
                 style: Theme.of(context).textTheme.titleMedium,

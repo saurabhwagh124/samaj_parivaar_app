@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:samaj_parivaar_app/model/user.dart';
 import 'package:samaj_parivaar_app/utils/api_client.dart';
 import 'package:samaj_parivaar_app/utils/api_endpoints.dart';
@@ -46,7 +45,11 @@ class AuthService extends GetxService {
         "email": email,
         "password": password,
       };
-      final response = await _apiClient.post(ApiEndpoints.registerUrl, headers: headers, body: jsonEncode(payload));
+      final response = await _apiClient.post(
+        ApiEndpoints.registerUrl,
+        headers: headers,
+        body: jsonEncode(payload),
+      );
       final apiRes = jsonDecode(response.body);
       if (apiRes["success"] ?? false) {
         return;
@@ -55,6 +58,28 @@ class AuthService extends GetxService {
       }
     } catch (e) {
       throw Exception(e);
+    }
+  }
+
+  Future<User> updateUser(User user) async {
+    final url = ApiEndpoints.updateUserDetails.replaceAll(
+      ":id",
+      user.id!.toString(),
+    );
+    log(jsonEncode(user));
+    final response = await _apiClient.put(
+      url,
+      body: jsonEncode(user),
+      headers: headers,
+    );
+    final apiRes = jsonDecode(response.body);
+    if (apiRes["success"] ?? false) {
+      final user = User.fromJson(apiRes["data"]);
+      await LocalStorage.i.saveUser(jsonEncode(user), "current_user");
+      await LocalStorage.i.saveToken(apiRes["data"]["token"]);
+      return user;
+    } else {
+      throw Exception(apiRes["message"]);
     }
   }
 }

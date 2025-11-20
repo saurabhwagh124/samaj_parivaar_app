@@ -25,9 +25,6 @@ class _GroupPageState extends State<GroupPage> {
   @override
   void initState() {
     super.initState();
-    if (communityController.communities.isEmpty) {
-      communityController.getCommunities();
-    }
     communityController.getUserCommunities();
   }
 
@@ -92,8 +89,10 @@ class _GroupPageState extends State<GroupPage> {
                           ),
                     )
                     .toList();
-                return (communityController.isLoading.value)
+                return (communityController.isMyCommunitiesLoading.value)
                     ? Center(child: CircularProgressIndicator())
+                    : (communityList.isEmpty)
+                    ? Center(child: Text("No Communities added"))
                     : ListView.separated(
                         itemBuilder: (context, index) => CommunityCard(
                           data: communityList[index],
@@ -110,9 +109,14 @@ class _GroupPageState extends State<GroupPage> {
                 Get.to(() => DiscoverCommunityScreen());
               },
               child: PrimaryButton(
-                newHeight: 70.h,
-                newWidth: 390.w,
+                newHeight: 60.h,
+                newWidth: 360.w,
                 text: "Discover & Join Groups",
+                style: TextStyle(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w600,
+                  color: appTheme().colorScheme.iceBlue,
+                ),
                 borderRadius: BorderRadius.circular(40.r),
               ),
             ),

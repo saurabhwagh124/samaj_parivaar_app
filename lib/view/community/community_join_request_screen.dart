@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:samaj_parivaar_app/controller/community_controller.dart';
 import 'package:samaj_parivaar_app/model/community_model.dart';
 import 'package:samaj_parivaar_app/res/assets_res.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
@@ -20,6 +22,7 @@ class CommunityJoinRequestScreen extends StatefulWidget {
 class _CommunityJoinRequestScreenState
     extends State<CommunityJoinRequestScreen> {
   final messageController = TextEditingController();
+  final communityController = Get.find<CommunityController>();
 
   @override
   Widget build(BuildContext context) {
@@ -172,24 +175,32 @@ class _CommunityJoinRequestScreenState
               ),
             ),
             SizedBox(height: 20.h),
-            SecondaryButton(
-              newHeight: 58.h,
-              newWidth: 384.w,
-              text: "Request to join",
-              style: TextStyle(
-                fontSize: 24.sp,
-                fontWeight: FontWeight.w600,
-                color: appTheme().colorScheme.lavender,
-              ),
-              newShadow: [
-                BoxShadow(
-                  blurRadius: 7.7,
-                  offset: Offset(0, 4),
-                  color: Colors.black26,
+            InkWell(
+              onTap: () {
+                communityController.createJoinRequest(
+                  widget.data.groupId!,
+                  messageController.text,
+                );
+              },
+              child: SecondaryButton(
+                newHeight: 58.h,
+                newWidth: 384.w,
+                text: "Request to join",
+                style: TextStyle(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w600,
+                  color: appTheme().colorScheme.lavender,
                 ),
-              ],
-              newBorder: Border.all(color: appTheme().colorScheme.textGrey),
-              borderRadius: BorderRadius.circular(10.r),
+                newShadow: [
+                  BoxShadow(
+                    blurRadius: 7.7,
+                    offset: Offset(0, 4),
+                    color: Colors.black26,
+                  ),
+                ],
+                newBorder: Border.all(color: appTheme().colorScheme.textGrey),
+                borderRadius: BorderRadius.circular(10.r),
+              ),
             ),
           ],
         ),

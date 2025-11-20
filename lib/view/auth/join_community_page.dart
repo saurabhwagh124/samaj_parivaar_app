@@ -31,11 +31,14 @@ class JoinCommunityPage extends StatelessWidget {
               style: appTheme().textTheme.bodyLarge?.copyWith(fontSize: 20.sp),
             ),
             SizedBox(height: 30.h),
-            SecondaryButton(
-              newHeight: 60.h,
-              newWidth: 350.w,
-              text: "Join Community",
-              borderRadius: BorderRadius.circular(15.r),
+            InkWell(
+              onTap: () {},
+              child: SecondaryButton(
+                newHeight: 60.h,
+                newWidth: 350.w,
+                text: "Join Community",
+                borderRadius: BorderRadius.circular(15.r),
+              ),
             ),
           ],
         ),

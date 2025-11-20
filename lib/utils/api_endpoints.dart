@@ -1,12 +1,13 @@
 class ApiEndpoints {
-  static String baseUrl = "http://192.168.0.108:4300/api";
+  // static String baseUrl = "http://192.168.0.108:4300/api";
+  static String baseUrl = "http://10.25.130.28:4300/api";
 
   // Auth
   static String registerUrl = "$baseUrl/users/register";
   static String loginUrl = "$baseUrl/users/login";
   static String resetPassword = "$baseUrl/users/reset-password";
   static String checkOtp = "$baseUrl/users/check-otp";
-  static String updateUserDetails = "$baseUrl/users/:id";
+  static String updateUserDetails = "$baseUrl/users/update/:id";
 
   //Area groups
   static String areaGroupsUrl = "$baseUrl/area-groups";

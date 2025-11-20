@@ -75,7 +75,7 @@ class _SelectCommunityScreenState extends State<SelectCommunityScreen> {
               SizedBox(height: 10.h),
               Obx(() {
                 final list = communityController.communities;
-                return (communityController.isLoading.value)
+                return (communityController.isCommunitiesLoading.value)
                     ? Center(child: CircularProgressIndicator())
                     : Expanded(
                         child: GridView.builder(

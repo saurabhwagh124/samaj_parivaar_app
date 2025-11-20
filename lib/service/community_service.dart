@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:samaj_parivaar_app/model/community_model.dart';
+import 'package:samaj_parivaar_app/model/join_request.dart';
 import 'package:samaj_parivaar_app/utils/api_client.dart';
 import 'package:samaj_parivaar_app/utils/api_endpoints.dart';
 
@@ -86,6 +87,29 @@ class CommunityService extends GetxService {
         return data
             .map<CommunityModel>((item) => CommunityModel.fromJson(item))
             .toList();
+      } else {
+        throw Exception(apiRes["message"]);
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<void> createJoinRequest(JoinRequest payload) async {
+    try {
+      final request = {
+        "groupId": payload.groupId,
+        "userId": payload.userId,
+        "requestMessage": payload.requestMessage,
+      };
+      final response = await _apiClient.post(
+        ApiEndpoints.joinGroupUrl,
+        body: jsonEncode(request),
+        headers: headers,
+      );
+      final apiRes = jsonDecode(response.body);
+      if (apiRes["success"] ?? false) {
+        return;
       } else {
         throw Exception(apiRes["message"]);
       }

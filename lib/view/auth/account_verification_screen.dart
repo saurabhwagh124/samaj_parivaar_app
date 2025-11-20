@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
+import 'package:samaj_parivaar_app/view/auth/basic_form_screen.dart';
 import 'package:samaj_parivaar_app/widgets/primary_button.dart';
 
 class AccountVerificationScreen extends StatefulWidget {
@@ -76,11 +78,16 @@ class _AccountVerificationScreenState extends State<AccountVerificationScreen> {
               ),
             ),
             SizedBox(height: 40.h),
-            PrimaryButton(
-              newHeight: 70.h,
-              newWidth: 350.w,
-              text: "Verify",
-              borderRadius: BorderRadius.circular(10.r),
+            InkWell(
+              onTap: () {
+                Get.off(() => BasicFormScreen());
+              },
+              child: PrimaryButton(
+                newHeight: 70.h,
+                newWidth: 350.w,
+                text: "Verify",
+                borderRadius: BorderRadius.circular(10.r),
+              ),
             ),
           ],
         ),

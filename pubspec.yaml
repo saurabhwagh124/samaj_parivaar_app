@@ -19,8 +19,12 @@ dependencies:
   http: ^1.6.0
   get_storage: ^2.1.1
   pinput: ^5.0.2
+  image_cropper: ^11.0.0
+  carousel_slider: ^5.1.1
+  intl: ^0.20.2
   image_picker: ^1.2.1
   shimmer: ^3.0.0
+  flutter_expandable_fab: ^2.5.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
@@ -39,15 +43,25 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/images/add_media.png
     - assets/images/add_post.png
+    - assets/images/bishi_group.png
     - assets/images/community.png
+    - assets/images/community_black.png
     - assets/images/community_icon.png
     - assets/images/community_people.png
     - assets/images/email.png
+    - assets/images/error_image.png
+    - assets/images/event.png
     - assets/images/events.png
     - assets/images/google.png
     - assets/images/home.png
+    - assets/images/job.png
+    - assets/images/location.png
     - assets/images/logo.png
     - assets/images/name.png
     - assets/images/password_lock.png
     - assets/images/person_profile.png
+    - assets/images/poll.png
+    - assets/images/post.png
+    - assets/images/request.png

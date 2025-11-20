@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:samaj_parivaar_app/model/user.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
 import 'package:samaj_parivaar_app/utils/local_storage.dart';
+import 'package:samaj_parivaar_app/view/auth/basic_form_screen.dart';
 import 'package:samaj_parivaar_app/view/auth/login_page.dart';
 import 'package:samaj_parivaar_app/widgets/common_appbar.dart';
 import 'package:samaj_parivaar_app/widgets/my_network_image.dart';
@@ -100,15 +101,20 @@ class _ProfilePageState extends State<ProfilePage> {
               style: appTheme().textTheme.titleMedium,
             ),
             SizedBox(height: 10.h),
-            SecondaryButton(
-              newHeight: 38.h,
-              newWidth: 366.w,
-              text: "Edit Profile",
-              borderRadius: BorderRadius.circular(5.r),
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 15.sp,
-                color: appTheme().colorScheme.lavender,
+            InkWell(
+              onTap: () {
+                Get.to(() => BasicFormScreen(isEdit: true));
+              },
+              child: SecondaryButton(
+                newHeight: 38.h,
+                newWidth: 366.w,
+                text: "Edit Profile",
+                borderRadius: BorderRadius.circular(5.r),
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15.sp,
+                  color: appTheme().colorScheme.lavender,
+                ),
               ),
             ),
             SizedBox(height: 20.h),

@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen>
     _logoAnim = Tween<double>(
       begin: 0,
       end: 1,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutQuart));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.slowMiddle));
 
     // navigate when animation finishes
     _controller.addStatusListener((status) {
@@ -66,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen>
           builder: (_, child) {
             // scale 0.6 → 5  |  opacity 1 → 0
             final scale = 0.6 + 4.4 * _logoAnim.value;
-            final opacity = 1 - _logoAnim.value;
+            final opacity = 1 - (_logoAnim.value * 0.7);
 
             return Transform.scale(
               scale: scale,
