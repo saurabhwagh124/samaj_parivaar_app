@@ -6,6 +6,8 @@ extension AppColors on ColorScheme {
   Color get grey1 => const Color(0xFFD9D9D9);
 
   Color get textGrey => const Color(0xFFAFAAAA);
+
+  Color get textGrey2 => const Color(0xFFB1AAAA);
 }
 
 ThemeData appTheme() {

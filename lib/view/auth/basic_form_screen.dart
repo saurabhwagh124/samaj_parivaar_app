@@ -102,7 +102,7 @@ class _BasicFormScreenState extends State<BasicFormScreen> {
 
   Future<void> getImages() async {
     final picker = ImagePicker();
-    profileImage ??= await picker.pickImage(source: ImageSource.camera);
+    profileImage ??= await picker.pickImage(source: ImageSource.gallery);
     if (profileImage != null) {
       final temp = await picker.pickImage(source: ImageSource.camera);
       if (temp != null) {

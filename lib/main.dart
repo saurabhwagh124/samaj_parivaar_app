@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_maps_flutter_android/google_maps_flutter_android.dart';
+import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 import 'package:samaj_parivaar_app/controller/auth_controller.dart';
 import 'package:samaj_parivaar_app/controller/community_controller.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
@@ -15,6 +17,11 @@ void main() async {
   await GetStorage.init();
   runApp(const MyApp());
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  final GoogleMapsFlutterPlatform mapsImplementation =
+      GoogleMapsFlutterPlatform.instance;
+  if (mapsImplementation is GoogleMapsFlutterAndroid) {
+    // Force Hybrid Composition mode.
+  }
 }
 
 class MyApp extends StatelessWidget {

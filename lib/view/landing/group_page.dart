@@ -25,7 +25,9 @@ class _GroupPageState extends State<GroupPage> {
   @override
   void initState() {
     super.initState();
-    communityController.getUserCommunities();
+    if (communityController.myCommunities.isEmpty) {
+      communityController.getUserCommunities();
+    }
   }
 
   @override

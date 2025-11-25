@@ -9,6 +9,9 @@ import 'package:samaj_parivaar_app/utils/app_colors.dart';
 class AppTextFormField extends StatelessWidget {
   final Function(String)? onChangeFunction;
   final String hintText;
+  final Color? myFillColor;
+  final Color? myBorderColor;
+  final int myMaxLines;
   final TextStyle? hintTextStyle;
   final BorderRadius? radius;
   final TextEditingController controller;
@@ -20,11 +23,16 @@ class AppTextFormField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final void Function(String)? onFieldSubmitted;
   final FocusNode? focusNode;
+  final bool readOnly;
+  final VoidCallback? onTap;
 
   const AppTextFormField({
     super.key,
     this.onChangeFunction,
     required this.hintText,
+    this.myFillColor,
+    this.myBorderColor,
+    this.myMaxLines = 1,
     this.hintTextStyle,
     required this.controller,
     this.radius,
@@ -36,6 +44,8 @@ class AppTextFormField extends StatelessWidget {
     this.textInputAction,
     this.onFieldSubmitted,
     this.focusNode,
+    this.readOnly = false,
+    this.onTap,
   });
 
   @override
@@ -49,6 +59,7 @@ class AppTextFormField extends StatelessWidget {
         final isObscure = obscureValue ?? false;
 
         return TextFormField(
+          maxLines: myMaxLines,
           onChanged: onChangeFunction,
           controller: controller,
           obscureText: isObscure,
@@ -57,9 +68,13 @@ class AppTextFormField extends StatelessWidget {
           focusNode: focusNode,
           validator: validator,
           onFieldSubmitted: onFieldSubmitted,
+          readOnly: readOnly,
+          onTap: onTap,
           decoration: InputDecoration(
             filled: true,
-            fillColor: appTheme().colorScheme.iceBlue,
+            fillColor: (myFillColor != null)
+                ? myFillColor
+                : appTheme().colorScheme.iceBlue,
             hintText: hintText,
             hintStyle: (hintTextStyle != null)
                 ? hintTextStyle
@@ -73,25 +88,41 @@ class AppTextFormField extends StatelessWidget {
               borderRadius: (radius != null)
                   ? radius!
                   : BorderRadius.circular(30),
-              borderSide: BorderSide(color: Colors.transparent),
+              borderSide: BorderSide(
+                color: (myBorderColor != null)
+                    ? myBorderColor!
+                    : Colors.transparent,
+              ),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: (radius != null)
                   ? radius!
                   : BorderRadius.circular(30),
-              borderSide: BorderSide(color: Colors.transparent),
+              borderSide: BorderSide(
+                color: (myBorderColor != null)
+                    ? myBorderColor!
+                    : Colors.transparent,
+              ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: (radius != null)
                   ? radius!
                   : BorderRadius.circular(30),
-              borderSide: BorderSide(color: Colors.transparent),
+              borderSide: BorderSide(
+                color: (myBorderColor != null)
+                    ? myBorderColor!
+                    : Colors.transparent,
+              ),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: (radius != null)
                   ? radius!
                   : BorderRadius.circular(30),
-              borderSide: BorderSide(color: Colors.transparent),
+              borderSide: BorderSide(
+                color: (myBorderColor != null)
+                    ? myBorderColor!
+                    : Colors.transparent,
+              ),
             ),
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 16,

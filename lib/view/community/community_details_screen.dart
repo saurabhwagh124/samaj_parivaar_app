@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:samaj_parivaar_app/model/community_model.dart';
 import 'package:samaj_parivaar_app/res/assets_res.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
+import 'package:samaj_parivaar_app/view/community/create/create_event_screen.dart';
 import 'package:samaj_parivaar_app/widgets/common_appbar.dart';
 import 'package:samaj_parivaar_app/widgets/my_network_image.dart';
 
@@ -38,6 +40,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CommonAppbar(titleText: "", actionsList: [], center: true),
+      floatingActionButtonLocation: ExpandableFab.location,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
         child: SingleChildScrollView(
@@ -251,33 +254,32 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
           ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: ExpandableFab(
+        distance: 40.h,
         pos: ExpandableFabPos.right,
+        type: ExpandableFabType.up,
         childrenAnimation: ExpandableFabAnimation.rotate,
         openButtonBuilder: RotateFloatingActionButtonBuilder(
           shape: CircleBorder(),
-          fabSize: ExpandableFabSize.small,
           backgroundColor: appTheme().colorScheme.iceBlue,
-          child: Container(
-            color: Colors.red,
-            child: Image.asset(AssetsRes.ADD_POST, height: 30.r, width: 30.r),
-          ),
+          child: Image.asset(AssetsRes.ADD_POST, height: 30.r, width: 30.r),
         ),
         closeButtonBuilder: DefaultFloatingActionButtonBuilder(
-          child: const Icon(Icons.close),
-          fabSize: ExpandableFabSize.small,
+          child: Icon(Icons.close, color: appTheme().colorScheme.lavender),
           foregroundColor: appTheme().colorScheme.lavender,
           backgroundColor: appTheme().colorScheme.iceBlue,
           shape: const CircleBorder(),
         ),
         children: [
-          fabItemBuilder("Job", AssetsRes.JOB, () {}),
-          fabItemBuilder("Poll", AssetsRes.POLL, () {}),
-          fabItemBuilder("Post", AssetsRes.POST, () {}),
-          fabItemBuilder("Event", AssetsRes.EVENT, () {}),
-          fabItemBuilder("Group", AssetsRes.BISHI_GROUP, () {}),
+          SizedBox.shrink(),
           fabItemBuilder("Request", AssetsRes.REQUEST, () {}),
+          fabItemBuilder("Group", AssetsRes.BISHI_GROUP, () {}),
+          fabItemBuilder("Event", AssetsRes.EVENT, () {
+            Get.to(() => CreateEventScreen());
+          }),
+          fabItemBuilder("Post", AssetsRes.POST, () {}),
+          fabItemBuilder("Poll", AssetsRes.POLL, () {}),
+          fabItemBuilder("Job", AssetsRes.JOB, () {}),
         ],
       ),
     );
@@ -327,20 +329,25 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
   }
 
   Widget fabItemBuilder(String name, String icon, Function()? onPress) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: appTheme().colorScheme.lavender),
-        borderRadius: BorderRadius.circular(30.r),
-      ),
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-      child: Row(
-        spacing: 10.w,
-        children: [
-          Text(name),
-          Image.asset(icon, height: 15.r, width: 15.r),
-          Icon(Icons.arrow_forward_ios, color: Colors.black, size: 15.sp),
-        ],
+    return GestureDetector(
+      onTap: onPress,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: appTheme().colorScheme.lavender),
+          borderRadius: BorderRadius.circular(30.r),
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(name),
+            SizedBox(width: 10.w),
+            Image.asset(icon, height: 15.r, width: 15.r),
+            SizedBox(width: 10.w),
+            Icon(Icons.arrow_forward_ios, color: Colors.black, size: 15.sp),
+          ],
+        ),
       ),
     );
   }
