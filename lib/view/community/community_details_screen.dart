@@ -26,7 +26,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 6, vsync: this);
   }
 
   @override
@@ -227,11 +227,12 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                 dividerColor: Colors.transparent,
                 indicator: BoxDecoration(color: Colors.transparent),
                 tabs: [
-                  tabIcons(AssetsRes.POST, "Post", 0),
-                  tabIcons(AssetsRes.EVENT, "Event", 1),
-                  tabIcons(AssetsRes.BISHI_GROUP, "Bishi group", 2),
-                  tabIcons(AssetsRes.JOB, "Job", 3),
-                  tabIcons(AssetsRes.POLL, "Poll", 4),
+                  tabIcons(AssetsRes.POST, "All", 0),
+                  tabIcons(AssetsRes.POST, "Post", 1),
+                  tabIcons(AssetsRes.EVENT, "Event", 2),
+                  tabIcons(AssetsRes.BISHI_GROUP, "Bishi group", 3),
+                  tabIcons(AssetsRes.JOB, "Job", 4),
+                  tabIcons(AssetsRes.POLL, "Poll", 5),
                 ],
                 controller: _tabController,
               ),
@@ -242,11 +243,12 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                   controller: _tabController,
                   physics: NeverScrollableScrollPhysics(),
                   children: [
-                    tabIcons(AssetsRes.POST, "Post", 0),
-                    tabIcons(AssetsRes.EVENT, "Event", 1),
-                    tabIcons(AssetsRes.BISHI_GROUP, "Bishi group", 2),
-                    tabIcons(AssetsRes.JOB, "Job", 3),
-                    tabIcons(AssetsRes.POLL, "Poll", 4),
+                    tabIcons(AssetsRes.POST, "All", 0),
+                    tabIcons(AssetsRes.POST, "Post", 1),
+                    tabIcons(AssetsRes.EVENT, "Event", 2),
+                    tabIcons(AssetsRes.BISHI_GROUP, "Bishi group", 3),
+                    tabIcons(AssetsRes.JOB, "Job", 4),
+                    tabIcons(AssetsRes.POLL, "Poll", 5),
                   ],
                 ),
               ),
@@ -275,7 +277,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
           fabItemBuilder("Request", AssetsRes.REQUEST, () {}),
           fabItemBuilder("Group", AssetsRes.BISHI_GROUP, () {}),
           fabItemBuilder("Event", AssetsRes.EVENT, () {
-            Get.to(() => CreateEventScreen());
+            Get.to(() => CreateEventScreen(groupId: widget.data.groupId!));
           }),
           fabItemBuilder("Post", AssetsRes.POST, () {}),
           fabItemBuilder("Poll", AssetsRes.POLL, () {}),

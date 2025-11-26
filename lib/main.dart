@@ -7,6 +7,7 @@ import 'package:google_maps_flutter_android/google_maps_flutter_android.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 import 'package:samaj_parivaar_app/controller/auth_controller.dart';
 import 'package:samaj_parivaar_app/controller/community_controller.dart';
+import 'package:samaj_parivaar_app/controller/event_controller.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
 import 'package:samaj_parivaar_app/view/splash_screen.dart';
 
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         initialBinding: BindingsBuilder.put(() async {
           Get.put(AuthController());
           Get.put(CommunityController());
+          Get.put(EventController());
         }),
         // home: const LoginPage(),
         home: const SplashScreen(),

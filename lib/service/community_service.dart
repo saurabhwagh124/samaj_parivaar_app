@@ -13,44 +13,38 @@ class CommunityService extends GetxService {
   bool _hasNext = true;
 
   Future<List<CommunityModel>> getCommunities() async {
-    try {
-      final response = await _apiClient.get(
-        ApiEndpoints.areaGroupsUrl,
-        headers: headers,
-      );
-      final apiRes = jsonDecode(response.body);
-      if (apiRes["success"] ?? false) {
-        final data = apiRes["data"]["groups"];
-        return data
-            .map<CommunityModel>((item) => CommunityModel.fromJson(item))
-            .toList();
-      } else {
-        throw Exception(apiRes["message"]);
-      }
-    } catch (e) {
-      throw Exception(e);
+    final response = await _apiClient.get(
+      ApiEndpoints.areaGroupsUrl,
+      headers: headers,
+    );
+    // response is already decoded
+    if (response["success"] ?? false) {
+      final data = response["data"]["groups"];
+      return (data as List)
+          .map<CommunityModel>((item) => CommunityModel.fromJson(item))
+          .toList();
+    } else {
+      throw Exception(response["message"]);
     }
   }
 
   Future<List<CommunityModel>?> loadPage() async {
     if (_hasNext == false) return null;
-    try {
-      final url = '${ApiEndpoints.areaGroupsUrl}?page=$_page&limit=20';
-      final res = await _apiClient.get(url);
-      if (res.statusCode != 200) throw 'HTTP ${res.statusCode}';
-      final json = jsonDecode(res.body)['data'];
-      final List<dynamic> items = json['groups'];
-      final bool hasNext = json['pages'] > _page;
-      if (items.isEmpty && _page == 1) {
-      } else {
-        _hasNext = hasNext;
-        if (hasNext) _page++;
-        return items.map((e) => CommunityModel.fromJson(e)).toList();
-      }
-    } catch (e) {
-      throw Exception(e);
+
+    final url = '${ApiEndpoints.areaGroupsUrl}?page=$_page&limit=20';
+    final response = await _apiClient.get(url);
+
+    final json = response['data'];
+    final List<dynamic> items = json['groups'];
+    final bool hasNext = json['pages'] > _page;
+
+    if (items.isEmpty && _page == 1) {
+      return null;
+    } else {
+      _hasNext = hasNext;
+      if (hasNext) _page++;
+      return items.map((e) => CommunityModel.fromJson(e)).toList();
     }
-    return null;
   }
 
   Future<List<CommunityModel>> getUserCommunities(num id) async {
@@ -58,19 +52,14 @@ class CommunityService extends GetxService {
       ":userId",
       id.toString(),
     );
-    try {
-      final response = await _apiClient.get(url, headers: headers);
-      final apiRes = jsonDecode(response.body);
-      if (apiRes["success"] ?? false) {
-        final data = apiRes["data"];
-        return data
-            .map<CommunityModel>((item) => CommunityModel.fromJson(item))
-            .toList();
-      } else {
-        throw Exception(apiRes["message"]);
-      }
-    } catch (e) {
-      throw Exception(e);
+    final response = await _apiClient.get(url, headers: headers);
+    if (response["success"] ?? false) {
+      final data = response["data"];
+      return (data as List)
+          .map<CommunityModel>((item) => CommunityModel.fromJson(item))
+          .toList();
+    } else {
+      throw Exception(response["message"]);
     }
   }
 
@@ -79,42 +68,28 @@ class CommunityService extends GetxService {
       ":userId",
       id.toString(),
     );
-    try {
-      final response = await _apiClient.get(url, headers: headers);
-      final apiRes = jsonDecode(response.body);
-      if (apiRes["success"] ?? false) {
-        final data = apiRes["data"];
-        return data
-            .map<CommunityModel>((item) => CommunityModel.fromJson(item))
-            .toList();
-      } else {
-        throw Exception(apiRes["message"]);
-      }
-    } catch (e) {
-      throw Exception(e);
+    final response = await _apiClient.get(url, headers: headers);
+    if (response["success"] ?? false) {
+      final data = response["data"];
+      return (data as List)
+          .map<CommunityModel>((item) => CommunityModel.fromJson(item))
+          .toList();
+    } else {
+      throw Exception(response["message"]);
     }
   }
 
   Future<void> createJoinRequest(JoinRequest payload) async {
-    try {
-      final request = {
-        "groupId": payload.groupId,
-        "userId": payload.userId,
-        "requestMessage": payload.requestMessage,
-      };
-      final response = await _apiClient.post(
-        ApiEndpoints.joinGroupUrl,
-        body: jsonEncode(request),
-        headers: headers,
-      );
-      final apiRes = jsonDecode(response.body);
-      if (apiRes["success"] ?? false) {
-        return;
-      } else {
-        throw Exception(apiRes["message"]);
-      }
-    } catch (e) {
-      throw Exception(e);
-    }
+    final request = {
+      "groupId": payload.groupId,
+      "userId": payload.userId,
+      "requestMessage": payload.requestMessage,
+    };
+    final response = await _apiClient.post(
+      ApiEndpoints.joinGroupUrl,
+      body: jsonEncode(request),
+      headers: headers,
+    );
+    return;
   }
 }

@@ -1,7 +1,10 @@
 class ApiEndpoints {
   static String baseUrl = "http://192.168.0.108:4300/api";
 
-  // static String baseUrl = "http://10.25.130.28:4300/api";
+  // static String baseUrl = "http://10.116.133.28:4300/api";
+
+  //utils
+  static String uploadImage = "http://192.168.0.108:4300/upload/image";
 
   // Auth
   static String registerUrl = "$baseUrl/users/register";

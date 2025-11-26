@@ -12,25 +12,21 @@ class AuthService extends GetxService {
   static Map<String, String> headers = {"Content-Type": "application/json"};
 
   Future<User> login(String email, password) async {
-    try {
-      final payload = {"email": email, "password": password};
-      final response = await _apiClient.post(
-        ApiEndpoints.loginUrl,
-        headers: headers,
-        body: jsonEncode(payload),
-      );
-      final apiRes = jsonDecode(response.body);
-      if (apiRes["success"] ?? false) {
-        final user = User.fromJson(apiRes["data"]["user"]);
-        log(user.toString());
-        await LocalStorage.i.saveUser(jsonEncode(user), "current_user");
-        await LocalStorage.i.saveToken(apiRes["data"]["token"]);
-        return user;
-      } else {
-        throw Exception(apiRes["message"]);
-      }
-    } catch (e) {
-      throw Exception(e);
+    final payload = {"email": email, "password": password};
+    final response = await _apiClient.post(
+      ApiEndpoints.loginUrl,
+      headers: headers,
+      body: jsonEncode(payload),
+    );
+
+    if (response["success"] ?? false) {
+      final user = User.fromJson(response["data"]["user"]);
+      log(user.toString());
+      await LocalStorage.i.saveUser(jsonEncode(user), "current_user");
+      await LocalStorage.i.saveToken(response["data"]["token"]);
+      return user;
+    } else {
+      throw Exception(response["message"]);
     }
   }
 
@@ -39,25 +35,21 @@ class AuthService extends GetxService {
   }
 
   Future<void> register(String fullName, String email, String password) async {
-    try {
-      final payload = {
-        "fullName": fullName,
-        "email": email,
-        "password": password,
-      };
-      final response = await _apiClient.post(
-        ApiEndpoints.registerUrl,
-        headers: headers,
-        body: jsonEncode(payload),
-      );
-      final apiRes = jsonDecode(response.body);
-      if (apiRes["success"] ?? false) {
-        return;
-      } else {
-        throw Exception(apiRes["message"]);
-      }
-    } catch (e) {
-      throw Exception(e);
+    final payload = {
+      "fullName": fullName,
+      "email": email,
+      "password": password,
+    };
+    final response = await _apiClient.post(
+      ApiEndpoints.registerUrl,
+      headers: headers,
+      body: jsonEncode(payload),
+    );
+
+    if (response["success"] ?? false) {
+      return;
+    } else {
+      throw Exception(response["message"]);
     }
   }
 
@@ -72,14 +64,16 @@ class AuthService extends GetxService {
       body: jsonEncode(user),
       headers: headers,
     );
-    final apiRes = jsonDecode(response.body);
-    if (apiRes["success"] ?? false) {
-      final user = User.fromJson(apiRes["data"]);
-      await LocalStorage.i.saveUser(jsonEncode(user), "current_user");
-      await LocalStorage.i.saveToken(apiRes["data"]["token"]);
-      return user;
+
+    if (response["success"] ?? false) {
+      final updatedUser = User.fromJson(response["data"]);
+      await LocalStorage.i.saveUser(jsonEncode(updatedUser), "current_user");
+      if (response["data"]["token"] != null) {
+        await LocalStorage.i.saveToken(response["data"]["token"]);
+      }
+      return updatedUser;
     } else {
-      throw Exception(apiRes["message"]);
+      throw Exception(response["message"]);
     }
   }
 }
