@@ -40,9 +40,15 @@ class ApiClient {
     );
   }
 
-  Future<dynamic> delete(String url, {Map<String, String>? headers}) async {
+  Future<dynamic> delete(
+    String url, {
+    Object? body,
+    Map<String, String>? headers,
+  }) async {
     return _safeRequest(
-      () => http.delete(Uri.parse(url), headers: headers).timeout(_timeout),
+      () => http
+          .delete(Uri.parse(url), body: body, headers: headers)
+          .timeout(_timeout),
     );
   }
 

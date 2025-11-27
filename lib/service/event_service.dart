@@ -30,4 +30,24 @@ class EventService extends GetxService {
         .map<EventModel>((e) => EventModel.fromJson(e as Map<String, dynamic>))
         .toList();
   }
+
+  Future<void> createEventInterest(String eventId, String userId) async {
+    final url = ApiEndpoints.createEventInterest;
+    final payload = {"eventId": eventId, "userId": userId};
+    final response = await _apiClient.post(
+      url,
+      body: jsonEncode(payload),
+      headers: headers,
+    );
+  }
+
+  Future<void> deleteEventInterest(String eventId, String userId) async {
+    final url = ApiEndpoints.deleteEventInterest;
+    final payload = {"eventId": eventId, "userId": userId};
+    final response = await _apiClient.delete(
+      url,
+      body: jsonEncode(payload),
+      headers: headers,
+    );
+  }
 }

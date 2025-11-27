@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 String timeAgo(DateTime iso) {
   final now = DateTime.now().toUtc();
   final diff = now.difference(iso.toUtc());
@@ -8,4 +10,8 @@ String timeAgo(DateTime iso) {
   if (diff.inHours > 0) return '${diff.inHours} hours ago';
   if (diff.inMinutes > 0) return '${diff.inMinutes} minutes ago';
   return 'just now';
+}
+
+String weekDay(DateTime iso) {
+  return DateFormat("EEEE").format(iso);
 }

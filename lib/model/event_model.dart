@@ -180,7 +180,7 @@ class Creator {
 
   final int? id;
   final String? fullName;
-  final dynamic profilePhotoUrl;
+  final String? profilePhotoUrl;
   final String? email;
 
   Creator copyWith({

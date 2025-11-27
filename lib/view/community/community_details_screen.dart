@@ -181,7 +181,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                       children: [
                         Positioned(
                           top: 90.h,
-                          child: MyNetworkImage.networkImage(
+                          child: MyNetworkImage.networkImageCircleAvatar(
                             35.r,
                             widget.data.coverPhotoUrl ?? "",
                             BoxFit.cover,

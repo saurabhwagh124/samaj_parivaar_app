@@ -27,12 +27,12 @@ class JoinRequest {
     num? requestId,
     num? groupId,
     num? userId,
-    dynamic? requestMessage,
+    String? requestMessage,
     String? status,
     num? reviewedBy,
-    dynamic? reviewMessage,
+    String? reviewMessage,
     DateTime? requestedAt,
-    dynamic? reviewedAt,
+    DateTime? reviewedAt,
     User? user,
   }) {
     return JoinRequest(
@@ -59,7 +59,7 @@ class JoinRequest {
       reviewedBy: json["reviewedBy"],
       reviewMessage: json["reviewMessage"],
       requestedAt: DateTime.tryParse(json["requestedAt"] ?? ""),
-      reviewedAt: json["reviewedAt"],
+      reviewedAt: DateTime.tryParse(json["reviewedAt"] ?? ""),
       user: json["user"] == null ? null : User.fromJson(json["user"]),
     );
   }
@@ -73,7 +73,7 @@ class JoinRequest {
     "reviewedBy": reviewedBy,
     "reviewMessage": reviewMessage,
     "requestedAt": requestedAt?.toIso8601String(),
-    "reviewedAt": reviewedAt,
+    "reviewedAt": reviewedAt?.toIso8601String(),
     "user": user?.toJson(),
   };
 
@@ -94,7 +94,7 @@ class User {
   final String? fullName;
   final dynamic profilePhotoUrl;
 
-  User copyWith({int? id, String? fullName, dynamic? profilePhotoUrl}) {
+  User copyWith({int? id, String? fullName, String? profilePhotoUrl}) {
     return User(
       id: id ?? this.id,
       fullName: fullName ?? this.fullName,

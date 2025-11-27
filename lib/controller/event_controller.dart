@@ -8,6 +8,7 @@ import 'package:samaj_parivaar_app/service/util_service.dart';
 import 'package:samaj_parivaar_app/widgets/error_snackbar.dart';
 
 class EventController extends GetxController {
+  final utilService = UtilService();
   RxBool isCreateEventLoading = false.obs;
   RxBool isGetEventsByUserIdLoading = false.obs;
   RxList<EventModel> eventsList = <EventModel>[].obs;
@@ -32,7 +33,7 @@ class EventController extends GetxController {
   void getEventsByUserId() async {
     isGetEventsByUserIdLoading.value = true;
     try {
-      final userId = await UtilService().getUserId();
+      final userId = await utilService.getUserId();
       final list = await service.getEventsByUser(userId.toString());
       eventsList.value = list;
     } catch (e) {
@@ -43,6 +44,34 @@ class EventController extends GetxController {
       );
     } finally {
       isGetEventsByUserIdLoading.value = false;
+    }
+  }
+
+  void createEventInterest(num eventId) async {
+    try {
+      final userId = await utilService.getUserId();
+      await service.createEventInterest(eventId.toString(), userId.toString());
+      interestedEventsList.add(eventId);
+    } catch (e) {
+      log(e.toString());
+      MySnackBar.showErrorSnackBar(
+        "Error creating event interest",
+        e.toString(),
+      );
+    }
+  }
+
+  void deleteEventInterest(num eventId) async {
+    try {
+      final userId = await utilService.getUserId();
+      await service.deleteEventInterest(eventId.toString(), userId.toString());
+      interestedEventsList.add(eventId);
+    } catch (e) {
+      log(e.toString());
+      MySnackBar.showErrorSnackBar(
+        "Error deleting event interest",
+        e.toString(),
+      );
     }
   }
 }

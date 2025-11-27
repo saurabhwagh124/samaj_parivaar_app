@@ -28,7 +28,7 @@ class _CommunityGridBoxState extends State<CommunityGridBox> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          MyNetworkImage.networkImage(
+          MyNetworkImage.networkImageCircleAvatar(
             35.r,
             widget.data.coverPhotoUrl ?? "",
             BoxFit.cover,

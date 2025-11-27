@@ -68,6 +68,12 @@ class ApiEndpoints {
   static String getTicketsByUserIdUrl = "$baseUrl/event/ticket/user/:id";
   static String getTicketDetailsUrl = "$baseUrl/event/ticket/:id";
 
+  //eventInterested
+  static String createEventInterest = "$baseUrl/event/interest/";
+  static String deleteEventInterest = createEventInterest;
+  static String getEventInterestByUser = "$createEventInterest/user/:id";
+  static String getEventInterestByEvent = "$createEventInterest/event/:id";
+
   //ads
   static String createAdsUrl = "$baseUrl/ads";
   static String getAdsUrl = "$baseUrl/ads/active";

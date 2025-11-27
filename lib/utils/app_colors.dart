@@ -51,4 +51,5 @@ class MyAppColors {
   static const grey1 = Color(0xFFD9D9D9);
   static const textGrey = Color(0xFFAFAAAA);
   static const textGrey2 = Color(0xFFB1AAAA);
+  static const dividerGrey = Color(0xFFBFBFBF);
 }

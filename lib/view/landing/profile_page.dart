@@ -63,7 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             Stack(
               children: [
-                MyNetworkImage.networkImage(
+                MyNetworkImage.networkImageCircleAvatar(
                   70.r,
                   user!.profilePhotoUrl ?? "",
                   BoxFit.contain,

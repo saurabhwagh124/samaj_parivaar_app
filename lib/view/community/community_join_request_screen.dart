@@ -35,7 +35,7 @@ class _CommunityJoinRequestScreenState
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            MyNetworkImage.networkImage(
+            MyNetworkImage.networkImageCircleAvatar(
               61.r,
               widget.data.coverPhotoUrl ?? "",
               BoxFit.cover,
