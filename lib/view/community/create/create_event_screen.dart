@@ -147,7 +147,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
         uiSettings: [
           AndroidUiSettings(
             toolbarTitle: 'Crop Image',
-            toolbarColor: appTheme().colorScheme.iceBlue,
+            toolbarColor: MyAppColors.iceBlue,
             toolbarWidgetColor: Colors.black,
             initAspectRatio: CropAspectRatioPreset.ratio4x3,
             lockAspectRatio: true,
@@ -208,7 +208,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                      color: appTheme().colorScheme.iceBlue,
+                      color: MyAppColors.iceBlue,
                       borderRadius: BorderRadius.circular(10.r),
                     ),
                     height: 50.h,
@@ -288,27 +288,19 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                         filled: true,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
-                          borderSide: BorderSide(
-                            color: appTheme().colorScheme.lavender,
-                          ),
+                          borderSide: BorderSide(color: MyAppColors.lavender),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
-                          borderSide: BorderSide(
-                            color: appTheme().colorScheme.lavender,
-                          ),
+                          borderSide: BorderSide(color: MyAppColors.lavender),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
-                          borderSide: BorderSide(
-                            color: appTheme().colorScheme.lavender,
-                          ),
+                          borderSide: BorderSide(color: MyAppColors.lavender),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
-                          borderSide: BorderSide(
-                            color: appTheme().colorScheme.lavender,
-                          ),
+                          borderSide: BorderSide(color: MyAppColors.lavender),
                         ),
                         hintText: "Select Location",
                         suffixIcon: IconButton(
@@ -317,7 +309,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                           },
                           icon: Icon(
                             Icons.location_on_outlined,
-                            color: appTheme().colorScheme.lavender,
+                            color: MyAppColors.lavender,
                           ),
                         ),
                       ),
@@ -360,12 +352,10 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                               onChanged: (value) {
                                 showInterested.value = value;
                               },
-                              activeThumbColor: appTheme().colorScheme.iceBlue,
-                              activeTrackColor: appTheme().colorScheme.lavender,
-                              inactiveTrackColor:
-                                  appTheme().colorScheme.iceBlue,
-                              inactiveThumbColor:
-                                  appTheme().colorScheme.lavender,
+                              activeThumbColor: MyAppColors.iceBlue,
+                              activeTrackColor: MyAppColors.lavender,
+                              inactiveTrackColor: MyAppColors.iceBlue,
+                              inactiveThumbColor: MyAppColors.lavender,
                             ),
                           ],
                         ),
@@ -395,12 +385,10 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                               onChanged: (value) {
                                 isCancellable.value = value;
                               },
-                              activeThumbColor: appTheme().colorScheme.iceBlue,
-                              activeTrackColor: appTheme().colorScheme.lavender,
-                              inactiveTrackColor:
-                                  appTheme().colorScheme.iceBlue,
-                              inactiveThumbColor:
-                                  appTheme().colorScheme.lavender,
+                              activeThumbColor: MyAppColors.iceBlue,
+                              activeTrackColor: MyAppColors.lavender,
+                              inactiveTrackColor: MyAppColors.iceBlue,
+                              inactiveThumbColor: MyAppColors.lavender,
                             ),
                           ],
                         ),
@@ -446,12 +434,10 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                                   totalValue.value = 0;
                                 }
                               },
-                              activeThumbColor: appTheme().colorScheme.iceBlue,
-                              activeTrackColor: appTheme().colorScheme.lavender,
-                              inactiveTrackColor:
-                                  appTheme().colorScheme.iceBlue,
-                              inactiveThumbColor:
-                                  appTheme().colorScheme.lavender,
+                              activeThumbColor: MyAppColors.iceBlue,
+                              activeTrackColor: MyAppColors.lavender,
+                              inactiveTrackColor: MyAppColors.iceBlue,
+                              inactiveThumbColor: MyAppColors.lavender,
                             ),
                           ],
                         ),
@@ -470,7 +456,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                                 style: TextStyle(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w400,
-                                  color: appTheme().colorScheme.textGrey2,
+                                  color: MyAppColors.textGrey2,
                                 ),
                               ),
                               Spacer(flex: 3),
@@ -502,7 +488,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                                 style: TextStyle(
                                   fontSize: 16.sp,
                                   fontWeight: FontWeight.w600,
-                                  color: appTheme().colorScheme.lavender,
+                                  color: MyAppColors.lavender,
                                 ),
                               ),
                               Spacer(),
@@ -513,7 +499,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                                   style: TextStyle(
                                     fontSize: 16.sp,
                                     fontWeight: FontWeight.w600,
-                                    color: appTheme().colorScheme.lavender,
+                                    color: MyAppColors.lavender,
                                   ),
                                 ),
                               ),
@@ -579,7 +565,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 14.sp,
-                        color: appTheme().colorScheme.lavender,
+                        color: MyAppColors.lavender,
                       ),
                     ),
                   ),
@@ -623,7 +609,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
           hintText: hintText,
           controller: myController,
           myFillColor: Colors.white,
-          myBorderColor: appTheme().colorScheme.lavender,
+          myBorderColor: MyAppColors.lavender,
           radius: BorderRadius.circular(10.r),
           myMaxLines: maxLines,
           readOnly: readOnly,

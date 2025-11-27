@@ -37,12 +37,12 @@ class _DiscoverCommunityScreenState extends State<DiscoverCommunityScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           iconSize: 20.sp,
-          color: appTheme().colorScheme.lavender,
+          color: MyAppColors.lavender,
           onPressed: () {
             Get.back();
           },
         ),
-        backgroundColor: appTheme().colorScheme.iceBlue,
+        backgroundColor: MyAppColors.iceBlue,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,7 +58,7 @@ class _DiscoverCommunityScreenState extends State<DiscoverCommunityScreen> {
               style: TextStyle(
                 fontSize: 24.sp,
                 fontWeight: FontWeight.w600,
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
             ),
           ],
@@ -74,13 +74,13 @@ class _DiscoverCommunityScreenState extends State<DiscoverCommunityScreen> {
               },
               prefixIcon: Icon(
                 CupertinoIcons.search,
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
               hintText: 'Search for an area(e.g. Kothrud, Hinjewadi, ...) ',
               hintTextStyle: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
               radius: BorderRadius.circular(10.r),
               controller: searchController,

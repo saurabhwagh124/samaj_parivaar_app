@@ -44,3 +44,11 @@ ThemeData appTheme() {
     ).apply(fontFamily: 'Inter'),
   );
 }
+
+class MyAppColors {
+  static const iceBlue = Color(0xFFCDE8FD);
+  static const lavender = Color(0xFF4F51C0);
+  static const grey1 = Color(0xFFD9D9D9);
+  static const textGrey = Color(0xFFAFAAAA);
+  static const textGrey2 = Color(0xFFB1AAAA);
+}

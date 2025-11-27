@@ -46,7 +46,7 @@ class _CommunityJoinRequestScreenState
               style: TextStyle(
                 fontSize: 24.sp,
                 fontWeight: FontWeight.w600,
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
             ),
             Row(
@@ -63,7 +63,7 @@ class _CommunityJoinRequestScreenState
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
-                    color: appTheme().colorScheme.textGrey,
+                    color: MyAppColors.textGrey,
                   ),
                 ),
               ],
@@ -73,7 +73,7 @@ class _CommunityJoinRequestScreenState
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10.r),
-                border: Border.all(color: appTheme().colorScheme.lavender),
+                border: Border.all(color: MyAppColors.lavender),
                 boxShadow: [
                   BoxShadow(
                     spreadRadius: 0,
@@ -96,11 +96,11 @@ class _CommunityJoinRequestScreenState
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w600,
-                        color: appTheme().colorScheme.lavender,
+                        color: MyAppColors.lavender,
                       ),
                     ),
                   ),
-                  Divider(color: appTheme().colorScheme.lavender),
+                  Divider(color: MyAppColors.lavender),
                   Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: 20.w,
@@ -115,7 +115,7 @@ class _CommunityJoinRequestScreenState
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
-                            color: appTheme().colorScheme.textGrey,
+                            color: MyAppColors.textGrey,
                           ),
                         ),
                         Flexible(
@@ -124,7 +124,7 @@ class _CommunityJoinRequestScreenState
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
-                              color: appTheme().colorScheme.lavender,
+                              color: MyAppColors.lavender,
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
@@ -140,7 +140,7 @@ class _CommunityJoinRequestScreenState
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10.r),
-                border: Border.all(color: appTheme().colorScheme.lavender),
+                border: Border.all(color: MyAppColors.lavender),
                 boxShadow: [
                   BoxShadow(
                     spreadRadius: 0,
@@ -159,7 +159,7 @@ class _CommunityJoinRequestScreenState
                     style: TextStyle(
                       fontSize: 20.sp,
                       fontWeight: FontWeight.w600,
-                      color: appTheme().colorScheme.lavender,
+                      color: MyAppColors.lavender,
                     ),
                   ),
                   TextFormField(
@@ -189,7 +189,7 @@ class _CommunityJoinRequestScreenState
                 style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.w600,
-                  color: appTheme().colorScheme.lavender,
+                  color: MyAppColors.lavender,
                 ),
                 newShadow: [
                   BoxShadow(
@@ -198,7 +198,7 @@ class _CommunityJoinRequestScreenState
                     color: Colors.black26,
                   ),
                 ],
-                newBorder: Border.all(color: appTheme().colorScheme.textGrey),
+                newBorder: Border.all(color: MyAppColors.textGrey),
                 borderRadius: BorderRadius.circular(10.r),
               ),
             ),

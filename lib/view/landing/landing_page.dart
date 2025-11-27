@@ -42,18 +42,18 @@ class _LandingPageState extends State<LandingPage> {
         selectedLabelStyle: TextStyle(
           fontSize: 13.sp,
           fontWeight: FontWeight.w600,
-          color: appTheme().colorScheme.lavender,
+          color: MyAppColors.lavender,
         ),
         unselectedLabelStyle: TextStyle(
           fontSize: 12.sp,
           fontWeight: FontWeight.w600,
-          color: appTheme().colorScheme.lavender,
+          color: MyAppColors.lavender,
         ),
         items: [
           BottomNavigationBarItem(
             activeIcon: CircleAvatar(
               radius: 20.r,
-              backgroundColor: appTheme().colorScheme.iceBlue,
+              backgroundColor: MyAppColors.iceBlue,
               child: Image.asset(AssetsRes.HOME, height: 20.r, width: 20.r),
             ),
             icon: Image.asset(AssetsRes.HOME, height: 20.r, width: 20.r),
@@ -62,7 +62,7 @@ class _LandingPageState extends State<LandingPage> {
           BottomNavigationBarItem(
             activeIcon: CircleAvatar(
               radius: 20.r,
-              backgroundColor: appTheme().colorScheme.iceBlue,
+              backgroundColor: MyAppColors.iceBlue,
               child: Image.asset(
                 AssetsRes.COMMUNITY,
                 height: 20.r,
@@ -75,7 +75,7 @@ class _LandingPageState extends State<LandingPage> {
           BottomNavigationBarItem(
             activeIcon: CircleAvatar(
               radius: 20.r,
-              backgroundColor: appTheme().colorScheme.iceBlue,
+              backgroundColor: MyAppColors.iceBlue,
               child: Image.asset(AssetsRes.ADD_POST, height: 20.r, width: 20.r),
             ),
             icon: Image.asset(AssetsRes.ADD_POST, height: 20.r, width: 20.r),
@@ -84,7 +84,7 @@ class _LandingPageState extends State<LandingPage> {
           BottomNavigationBarItem(
             activeIcon: CircleAvatar(
               radius: 20.r,
-              backgroundColor: appTheme().colorScheme.iceBlue,
+              backgroundColor: MyAppColors.iceBlue,
               child: Image.asset(AssetsRes.EVENTS, height: 20.r, width: 20.r),
             ),
             icon: Image.asset(AssetsRes.EVENTS, height: 20.r, width: 20.r),
@@ -93,7 +93,7 @@ class _LandingPageState extends State<LandingPage> {
           BottomNavigationBarItem(
             activeIcon: CircleAvatar(
               radius: 20.r,
-              backgroundColor: appTheme().colorScheme.iceBlue,
+              backgroundColor: MyAppColors.iceBlue,
               child: Image.asset(
                 AssetsRes.PERSON_PROFILE,
                 height: 20.r,

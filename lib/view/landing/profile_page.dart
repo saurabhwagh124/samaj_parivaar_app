@@ -76,13 +76,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.circle,
-                      border: Border.all(
-                        color: appTheme().colorScheme.lavender,
-                      ),
+                      border: Border.all(color: MyAppColors.lavender),
                     ),
                     child: Icon(
                       Icons.camera_alt_outlined,
-                      color: appTheme().colorScheme.lavender,
+                      color: MyAppColors.lavender,
                       size: 25.sp,
                     ),
                   ),
@@ -92,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Text(
               user!.fullName ?? " USER ",
               style: appTheme().textTheme.headlineSmall?.copyWith(
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
             ),
             SizedBox(height: 10.h),
@@ -113,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 15.sp,
-                  color: appTheme().colorScheme.lavender,
+                  color: MyAppColors.lavender,
                 ),
               ),
             ),

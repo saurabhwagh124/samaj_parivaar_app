@@ -11,7 +11,7 @@ class IntroPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding:  EdgeInsets.all(10.sp),
+        padding: EdgeInsets.all(10.sp),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -46,7 +46,7 @@ class IntroPage extends StatelessWidget {
             ),
             SizedBox(height: 25.h),
             Padding(
-              padding:  EdgeInsets.all(20.sp),
+              padding: EdgeInsets.all(20.sp),
               child: Text(
                 " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
                 textAlign: TextAlign.left,
@@ -60,7 +60,7 @@ class IntroPage extends StatelessWidget {
               height: 50.h,
               width: 350.w,
               decoration: BoxDecoration(
-                color: appTheme().colorScheme.iceBlue,
+                color: MyAppColors.iceBlue,
                 borderRadius: BorderRadius.circular(35),
               ),
               child: Stack(
@@ -75,7 +75,7 @@ class IntroPage extends StatelessWidget {
                       height: 50.h,
                       width: 150.w,
                       decoration: BoxDecoration(
-                        color: appTheme().colorScheme.lavender,
+                        color: MyAppColors.lavender,
                         borderRadius: BorderRadius.circular(35),
                       ),
                       alignment: Alignment.center,
@@ -83,7 +83,11 @@ class IntroPage extends StatelessWidget {
                         "Login",
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.headlineSmall
-                            ?.copyWith(color: Colors.white, fontSize: 20.sp, fontWeight: FontWeight.w600),
+                            ?.copyWith(
+                              color: Colors.white,
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
                       ),
                     ),
                   ),
@@ -98,8 +102,9 @@ class IntroPage extends StatelessWidget {
                           "Sign Up",
                           style: Theme.of(context).textTheme.headlineSmall
                               ?.copyWith(
-                                color: appTheme().colorScheme.lavender,
-                            fontSize: 20.sp, fontWeight: FontWeight.w600
+                                color: MyAppColors.lavender,
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w600,
                               ),
                         ),
                       ),

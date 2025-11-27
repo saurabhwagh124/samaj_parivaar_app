@@ -32,7 +32,7 @@ class _AccountVerificationScreenState extends State<AccountVerificationScreen> {
                 Text(
                   "Account\nVerification",
                   style: appTheme().textTheme.headlineLarge?.copyWith(
-                    color: appTheme().colorScheme.lavender,
+                    color: MyAppColors.lavender,
                   ),
                   textAlign: TextAlign.left,
                 ),
@@ -48,7 +48,7 @@ class _AccountVerificationScreenState extends State<AccountVerificationScreen> {
               style: TextStyle(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w500,
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
             ),
             Pinput(
@@ -60,7 +60,7 @@ class _AccountVerificationScreenState extends State<AccountVerificationScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(5.r),
-                  border: Border.all(color: appTheme().colorScheme.lavender),
+                  border: Border.all(color: MyAppColors.lavender),
                 ),
               ),
             ),
@@ -74,7 +74,7 @@ class _AccountVerificationScreenState extends State<AccountVerificationScreen> {
               style: TextStyle(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w500,
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
             ),
             SizedBox(height: 40.h),

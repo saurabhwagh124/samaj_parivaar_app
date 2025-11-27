@@ -21,7 +21,7 @@ class JoinCommunityPage extends StatelessWidget {
             Text(
               "Parivaar",
               style: appTheme().textTheme.headlineSmall?.copyWith(
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
             ),
             SizedBox(height: 20.h),

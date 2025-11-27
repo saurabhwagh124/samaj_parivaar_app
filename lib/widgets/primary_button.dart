@@ -23,7 +23,7 @@ class PrimaryButton extends StatelessWidget {
       height: newHeight,
       width: newWidth,
       decoration: BoxDecoration(
-        color: appTheme().colorScheme.lavender,
+        color: MyAppColors.lavender,
         borderRadius: borderRadius,
       ),
       alignment: Alignment.center,

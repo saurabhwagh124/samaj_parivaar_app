@@ -29,7 +29,7 @@ class _CommunityCardState extends State<CommunityCard> {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
         decoration: BoxDecoration(
-          color: appTheme().colorScheme.iceBlue,
+          color: MyAppColors.iceBlue,
           borderRadius: BorderRadius.circular(10.r),
           boxShadow: [
             BoxShadow(
@@ -50,7 +50,7 @@ class _CommunityCardState extends State<CommunityCard> {
               style: TextStyle(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w600,
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
             ),
             Text(
@@ -58,7 +58,7 @@ class _CommunityCardState extends State<CommunityCard> {
               style: TextStyle(
                 fontSize: 13.sp,
                 fontWeight: FontWeight.w400,
-                color: appTheme().colorScheme.textGrey,
+                color: MyAppColors.textGrey,
               ),
             ),
             Expanded(
@@ -74,7 +74,7 @@ class _CommunityCardState extends State<CommunityCard> {
                   style: TextStyle(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
-                    color: appTheme().colorScheme.textGrey,
+                    color: MyAppColors.textGrey,
                   ),
                 ),
                 Spacer(),

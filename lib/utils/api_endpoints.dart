@@ -62,6 +62,7 @@ class ApiEndpoints {
   static String getAllEventsUrl = "$baseUrl/event";
   static String createEventUrl = "$baseUrl/event/create";
   static String getEventByIdUrl = "$baseUrl/event/:id";
+  static String getEventByUserIdUrl = "$baseUrl/event/user/:id";
   static String getEventsByGroupIdUrl = "$baseUrl/event/group/:id";
   static String registerForEventUrl = "$baseUrl/event/register";
   static String getTicketsByUserIdUrl = "$baseUrl/event/ticket/user/:id";

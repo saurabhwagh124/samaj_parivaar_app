@@ -47,7 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Text(
               "Let's get\nStarted",
               style: appTheme().textTheme.headlineLarge?.copyWith(
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
             ),
             SizedBox(height: 20.h),
@@ -139,7 +139,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(35.r),
-              border: Border.all(color: Theme.of(context).colorScheme.lavender),
+              border: Border.all(color: MyAppColors.lavender),
             ),
             alignment: Alignment.center,
             child: Row(

@@ -97,20 +97,20 @@ class _LocationPickerScreenState extends State<LocationPickerScreen> {
           },
           icon: Icon(
             Icons.arrow_back_ios,
-            color: appTheme().colorScheme.lavender,
+            color: MyAppColors.lavender,
             size: 20.sp,
           ),
         ),
         title: Text(
           "Pick Location",
           style: appTheme().textTheme.headlineSmall?.copyWith(
-            color: appTheme().colorScheme.lavender,
+            color: MyAppColors.lavender,
           ),
         ),
-        backgroundColor: appTheme().colorScheme.iceBlue,
+        backgroundColor: MyAppColors.iceBlue,
         actions: [
           IconButton(
-            icon: Icon(Icons.check, color: appTheme().colorScheme.lavender),
+            icon: Icon(Icons.check, color: MyAppColors.lavender),
             onPressed: () {
               if (_pickedLocation != null) {
                 Get.back(result: _pickedLocation);

@@ -4,11 +4,14 @@ import 'package:get/get.dart';
 import 'package:samaj_parivaar_app/model/event_model.dart';
 import 'package:samaj_parivaar_app/model/payload/event_payload.dart';
 import 'package:samaj_parivaar_app/service/event_service.dart';
+import 'package:samaj_parivaar_app/service/util_service.dart';
 import 'package:samaj_parivaar_app/widgets/error_snackbar.dart';
 
 class EventController extends GetxController {
   RxBool isCreateEventLoading = false.obs;
+  RxBool isGetEventsByUserIdLoading = false.obs;
   RxList<EventModel> eventsList = <EventModel>[].obs;
+  RxList<num> interestedEventsList = <num>[].obs;
   final service = EventService();
 
   void createEvent(EventPayload model) async {
@@ -23,6 +26,23 @@ class EventController extends GetxController {
       MySnackBar.showErrorSnackBar("Error creating event", e.toString());
     } finally {
       isCreateEventLoading.value = false;
+    }
+  }
+
+  void getEventsByUserId() async {
+    isGetEventsByUserIdLoading.value = true;
+    try {
+      final userId = await UtilService().getUserId();
+      final list = await service.getEventsByUser(userId.toString());
+      eventsList.value = list;
+    } catch (e) {
+      log(e.toString());
+      MySnackBar.showErrorSnackBar(
+        "Error fetching events by user",
+        e.toString(),
+      );
+    } finally {
+      isGetEventsByUserIdLoading.value = false;
     }
   }
 }

@@ -74,7 +74,7 @@ class AppTextFormField extends StatelessWidget {
             filled: true,
             fillColor: (myFillColor != null)
                 ? myFillColor
-                : appTheme().colorScheme.iceBlue,
+                : MyAppColors.iceBlue,
             hintText: hintText,
             hintStyle: (hintTextStyle != null)
                 ? hintTextStyle
@@ -148,12 +148,12 @@ class AppTextFormField extends StatelessWidget {
         icon: Icon(
           isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
         ),
-        // color: appTheme().colorScheme.lavender,
+        // color: MyAppColors.lavender,
         onPressed: () => obscureNotifier!.value = !isObscure,
       );
     }
     if (suffixIcon != null) {
-      return Icon(suffixIcon, color: appTheme().colorScheme.lavender);
+      return Icon(suffixIcon, color: MyAppColors.lavender);
     }
     return null;
   }

@@ -21,7 +21,7 @@ class _CommunityGridBoxState extends State<CommunityGridBox> {
       // margin: EdgeInsets.all(5.r),
       padding: EdgeInsets.all(10.r),
       decoration: BoxDecoration(
-        color: appTheme().colorScheme.grey1,
+        color: MyAppColors.grey1,
         borderRadius: BorderRadius.circular(10.r),
       ),
       child: Column(

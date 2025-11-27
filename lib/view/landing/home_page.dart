@@ -15,10 +15,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: MyAppColors.iceBlue,
         leading: Icon(
           Icons.menu,
           size: 32.r,
-          color: appTheme().colorScheme.lavender,
+          color: MyAppColors.lavender,
         ),
         actions: [
           Badge(
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(
                 CupertinoIcons.bell,
                 size: 32.sp,
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
               ),
             ),
           ),

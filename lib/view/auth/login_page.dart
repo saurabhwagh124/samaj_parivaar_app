@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
             Text(
               "Hey\nWelcome Back",
               style: appTheme().textTheme.headlineLarge?.copyWith(
-                color: appTheme().colorScheme.lavender,
+                color: MyAppColors.lavender,
                 fontSize: 36.sp,
                 fontWeight: FontWeight.w700,
               ),

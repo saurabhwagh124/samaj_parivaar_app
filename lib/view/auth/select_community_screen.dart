@@ -40,7 +40,7 @@ class _SelectCommunityScreenState extends State<SelectCommunityScreen> {
               Text(
                 "Select Community",
                 style: appTheme().textTheme.headlineSmall?.copyWith(
-                  color: appTheme().colorScheme.lavender,
+                  color: MyAppColors.lavender,
                 ),
               ),
               SizedBox(height: 40.h),
@@ -51,24 +51,20 @@ class _SelectCommunityScreenState extends State<SelectCommunityScreen> {
                   hintStyle: TextStyle(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w400,
-                    color: appTheme().colorScheme.lavender,
+                    color: MyAppColors.lavender,
                   ),
                   suffixIcon: Icon(
                     CupertinoIcons.search,
                     size: 25.sp,
-                    color: appTheme().colorScheme.lavender,
+                    color: MyAppColors.lavender,
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(6.r),
-                    borderSide: BorderSide(
-                      color: appTheme().colorScheme.lavender,
-                    ),
+                    borderSide: BorderSide(color: MyAppColors.lavender),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(6.r),
-                    borderSide: BorderSide(
-                      color: appTheme().colorScheme.lavender,
-                    ),
+                    borderSide: BorderSide(color: MyAppColors.lavender),
                   ),
                 ),
               ),
@@ -100,10 +96,10 @@ class _SelectCommunityScreenState extends State<SelectCommunityScreen> {
           Get.offAll(() => LandingPage());
         },
         shape: CircleBorder(),
-        backgroundColor: appTheme().colorScheme.iceBlue,
+        backgroundColor: MyAppColors.iceBlue,
         child: Icon(
           Icons.arrow_forward,
-          color: appTheme().colorScheme.lavender,
+          color: MyAppColors.lavender,
           size: 25.sp,
         ),
       ),

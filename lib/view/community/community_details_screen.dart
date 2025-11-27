@@ -52,7 +52,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(6.r),
-                  border: Border.all(color: appTheme().colorScheme.lavender),
+                  border: Border.all(color: MyAppColors.lavender),
                 ),
                 child: Stack(
                   children: [
@@ -72,7 +72,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                             ),
                           ),
                         ),
-                        Divider(color: appTheme().colorScheme.lavender),
+                        Divider(color: MyAppColors.lavender),
                         Expanded(
                           child: Padding(
                             padding: EdgeInsets.only(
@@ -91,12 +91,12 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                                       style: TextStyle(
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.w600,
-                                        color: appTheme().colorScheme.lavender,
+                                        color: MyAppColors.lavender,
                                       ),
                                     ),
                                     Icon(
                                       Icons.arrow_forward_ios,
-                                      color: appTheme().colorScheme.lavender,
+                                      color: MyAppColors.lavender,
                                       size: 15.sp,
                                     ),
                                   ],
@@ -124,7 +124,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                                       style: TextStyle(
                                         fontSize: 12.sp,
                                         fontWeight: FontWeight.w500,
-                                        color: appTheme().colorScheme.textGrey,
+                                        color: MyAppColors.textGrey,
                                       ),
                                     ),
                                     SizedBox(width: 20.w),
@@ -140,7 +140,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                                       style: TextStyle(
                                         fontSize: 12.sp,
                                         fontWeight: FontWeight.w500,
-                                        color: appTheme().colorScheme.textGrey,
+                                        color: MyAppColors.textGrey,
                                       ),
                                     ),
                                   ],
@@ -159,9 +159,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(30.r),
-                            border: Border.all(
-                              color: appTheme().colorScheme.lavender,
-                            ),
+                            border: Border.all(color: MyAppColors.lavender),
                           ),
                           height: 40.h,
                           width: 80.w,
@@ -196,9 +194,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                             decoration: BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,
-                              border: Border.all(
-                                color: appTheme().colorScheme.lavender,
-                              ),
+                              border: Border.all(color: MyAppColors.lavender),
                             ),
                             height: 30.r,
                             width: 30.r,
@@ -263,13 +259,13 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
         childrenAnimation: ExpandableFabAnimation.rotate,
         openButtonBuilder: RotateFloatingActionButtonBuilder(
           shape: CircleBorder(),
-          backgroundColor: appTheme().colorScheme.iceBlue,
+          backgroundColor: MyAppColors.iceBlue,
           child: Image.asset(AssetsRes.ADD_POST, height: 30.r, width: 30.r),
         ),
         closeButtonBuilder: DefaultFloatingActionButtonBuilder(
-          child: Icon(Icons.close, color: appTheme().colorScheme.lavender),
-          foregroundColor: appTheme().colorScheme.lavender,
-          backgroundColor: appTheme().colorScheme.iceBlue,
+          child: Icon(Icons.close, color: MyAppColors.lavender),
+          foregroundColor: MyAppColors.lavender,
+          backgroundColor: MyAppColors.iceBlue,
           shape: const CircleBorder(),
         ),
         children: [
@@ -298,12 +294,12 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
         curve: Curves.bounceInOut,
         decoration: (value == index)
             ? BoxDecoration(
-                color: appTheme().colorScheme.iceBlue,
+                color: MyAppColors.iceBlue,
                 borderRadius: BorderRadius.circular(30.r),
               )
             : BoxDecoration(
                 color: Colors.white,
-                border: Border.all(color: appTheme().colorScheme.iceBlue),
+                border: Border.all(color: MyAppColors.iceBlue),
                 borderRadius: BorderRadius.circular(30.r),
               ),
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.w),
@@ -319,7 +315,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w500,
-                  color: appTheme().colorScheme.lavender,
+                  color: MyAppColors.lavender,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -336,7 +332,7 @@ class _CommunityDetailsScreenState extends State<CommunityDetailsScreen>
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color: appTheme().colorScheme.lavender),
+          border: Border.all(color: MyAppColors.lavender),
           borderRadius: BorderRadius.circular(30.r),
         ),
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),

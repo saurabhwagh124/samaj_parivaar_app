@@ -17,10 +17,10 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
 
   final List<String> _languages = ['English', 'हिन्दी', 'मराठी'];
 
-  final Color _primaryColor = appTheme().colorScheme.lavender; // Deep Purple
-  final Color _selectedTileColor = appTheme().colorScheme.lavender;
+  final Color _primaryColor = MyAppColors.lavender; // Deep Purple
+  final Color _selectedTileColor = MyAppColors.lavender;
   final Color _unselectedTileColor = Colors.white;
-  final Color _borderColor = appTheme().colorScheme.lavender;
+  final Color _borderColor = MyAppColors.lavender;
 
   Widget _buildLanguageTile(String language) {
     bool isSelected = _selectedLanguage == language;
@@ -49,9 +49,7 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
         title: Text(
           language,
           style: TextStyle(
-            color: isSelected
-                ? _unselectedTileColor
-                : appTheme().colorScheme.lavender,
+            color: isSelected ? _unselectedTileColor : MyAppColors.lavender,
             fontSize: 20.sp,
             fontWeight: FontWeight.w500,
           ),

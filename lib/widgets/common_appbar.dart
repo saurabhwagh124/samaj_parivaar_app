@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:samaj_parivaar_app/utils/app_colors.dart';
 
 class CommonAppbar extends StatelessWidget implements PreferredSizeWidget {
+  final bool showLeadingIcon;
   final String titleText;
   final bool? center;
   final List<Widget> actionsList;
@@ -11,6 +12,7 @@ class CommonAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   const CommonAppbar({
     super.key,
+    this.showLeadingIcon = true,
     required this.titleText,
     this.center = false,
     required this.actionsList,
@@ -20,15 +22,17 @@ class CommonAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: appTheme().colorScheme.iceBlue,
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back_ios),
-        iconSize: 20.sp,
-        color: appTheme().colorScheme.lavender,
-        onPressed: () {
-          Get.back();
-        },
-      ),
+      backgroundColor: MyAppColors.iceBlue,
+      leading: (showLeadingIcon)
+          ? IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              iconSize: 20.sp,
+              color: MyAppColors.lavender,
+              onPressed: () {
+                Get.back();
+              },
+            )
+          : null,
 
       centerTitle: center,
 
@@ -39,7 +43,7 @@ class CommonAppbar extends StatelessWidget implements PreferredSizeWidget {
             TextStyle(
               fontSize: 24.sp,
               fontWeight: FontWeight.w600,
-              color: appTheme().colorScheme.lavender,
+              color: MyAppColors.lavender,
             ),
       ),
 
